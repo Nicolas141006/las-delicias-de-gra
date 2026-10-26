@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Consulta los detalles de los productos de Las Delicias de Gra.">
+
+        <title>Detalle del producto | Las Delicias de Gra</title>
+
+        <link rel="stylesheet" href="../css/global.css">
+        <link rel="stylesheet" href="../css/detalle-producto.css">
+
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    </head>
+
+    <body>
+        <header class="site-header">
+            <div class="top-bar">
+                <div class="top-bar__container">
+                    <div class="top-bar__contact">
+                        <a href="tel:+51945762189">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>945 762 189</span>
+                        </a>
+                        <a href="https://wa.me/51945762189" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <span>WhatsApp</span>
+                        </a>
+                    </div>
+
+                    <div class="top-bar__account">
+
+                        <a href="agregar-carrito.html"
+                           class="top-bar__cart"
+                           id="abrirCarrito"
+                           aria-label="Abrir carrito de compras">
+                            <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+                            <span>Mi carrito</span>
+                            <span class="cart-count" id="contadorCarrito">0</span>
+                        </a>
+
+                        <a href="html/login.html">
+                            <i class="fa-solid fa-user" aria-hidden="true"></i>
+                            <span>Iniciar sesión</span>
+                        </a>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <nav class="navbar" aria-label="Navegación principal">
+                <div class="navbar__container">
+                    <a href="../inicio.html" class="navbar__brand">
+                        <span class="navbar__brand-name">Las Delicias de Gra</span>
+                        <span class="navbar__brand-subtitle">Pastelería artesanal</span>
+                    </a>
+
+                    <button class="navbar__toggle" id="navbarToggle" type="button"
+                            aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+
+                    <ul class="nav-links" id="navLinks">
+                        <li><a href="../inicio.html">Inicio</a></li>
+                        <li><a href="nosotros.html">Nosotros</a></li>
+                        <li><a href="menu.html" class="active">Menú</a></li>
+                        <li><a href="galeria.html">Galería</a></li>
+                        <li><a href="resenas.html">Reseñas</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <main class="detalle-pagina">
+            <div class="detalle-contenedor">
+                <a href="menu.html" class="detalle-volver">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Volver al menú
+                </a>
+
+                <div id="detalleProducto" aria-live="polite">
+                    <div class="detalle-estado">
+                        <i class="fa-solid fa-spinner fa-spin"></i>
+                        <p>Cargando producto...</p>
+                    </div>
+                </div>
+
+                <section class="relacionados" id="seccionRelacionados" hidden>
+                    <div class="relacionados-encabezado">
+                        <span class="section-label">También te puede gustar</span>
+                        <h2>Descubre más delicias</h2>
+                        <p>Encuentra otra opción para disfrutar.</p>
+                    </div>
+                    <div class="relacionados-grid" id="productosRelacionados"></div>
+                </section>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer__container">
+                <div class="footer__about">
+                    <h3>Las Delicias de Gra</h3>
+                    <p>Tortas, postres, bocaditos y kekes preparados artesanalmente para tus momentos especiales.</p>
+                </div>
+                <div class="footer__links">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="../inicio.html">Inicio</a></li>
+                        <li><a href="nosotros.html">Nosotros</a></li>
+                        <li><a href="menu.html">Menú</a></li>
+                        <li><a href="galeria.html">Galería</a></li>
+                        <li><a href="resenas.html">Reseñas</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer__contact">
+                    <h4>Contacto</h4>
+
+                    <a
+                        href="https://maps.app.goo.gl/tDPpxJyVBvx9dZFa7"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >
+                        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                        <span>Chorrillos, Lima, Perú</span>
+                    </a>
+
+                    <a href="tel:+51945762189">
+                        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                        <span>945 762 189</span>
+                    </a>
+
+                    <a
+                        href="https://wa.me/51945762189"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >
+                        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                </div>
+
+                <div class="footer__social">
+                    <h4>Síguenos</h4>
+
+                    <div class="social-icons">
+                        <a
+                            href="https://www.facebook.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Facebook"
+                            >
+                            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+                        </a>
+
+                        <a
+                            href="https://www.instagram.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Instagram"
+                            >
+                            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                        </a>
+
+                        <a
+                            href="https://wa.me/51945762189"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="WhatsApp"
+                            >
+                            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>© 2026 Las Delicias de Gra. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+
+        <script>
+            const WHATSAPP = "51945762189";
+            const CLAVE_CARRITO = "carritoLasDeliciasDeGra";
+            const detalle = document.getElementById("detalleProducto");
+            const relacionados = document.getElementById("productosRelacionados");
+            const seccionRelacionados = document.getElementById("seccionRelacionados");
+            const parametros = new URLSearchParams(window.location.search);
+            const slugSolicitado = normalizar(parametros.get("producto") || "");
+
+            function normalizar(valor) {
+                return String(valor)
+                        .normalize("NFD")
+                        .replace(/[\u0300-\u036f]/g, "")
+                        .toLowerCase()
+                        .trim()
+                        .replace(/[^a-z0-9]+/g, "-")
+                        .replace(/^-|-$/g, "");
+            }
+
+            function escaparHTML(valor) {
+                return String(valor ?? "").replace(/[&<>"']/g, caracter => ({
+                        "&": "&amp;",
+                        "<": "&lt;",
+                        ">": "&gt;",
+                        '"': "&quot;",
+                        "'": "&#39;"
+                    })[caracter]);
+            }
+
+            function obtenerCatalogo() {
+                /*
+                 * El menú debe guardar su catálogo con esta clave:
+                 * localStorage.setItem("catalogoProductos", JSON.stringify(productos));
+                 */
+                try {
+                    const datos = JSON.parse(localStorage.getItem("catalogoProductos"));
+                    return Array.isArray(datos) ? datos : [];
+                } catch {
+                    return [];
+                }
+            }
+
+            function nombreProducto(producto) {
+                return producto.nombre || producto.name || producto.titulo || "Producto";
+            }
+
+            function imagenProducto(producto) {
+                if (!producto.imagen || !producto.carpeta) {
+                    return "";
+                }
+
+                return `../fotos/${producto.carpeta}/${producto.imagen}`;
+            }
+
+            function precioProducto(producto) {
+                const precio = producto.precio ?? producto.price;
+
+                if (precio === null || precio === undefined || precio === "") {
+                    return null;
+                }
+
+                const numero = Number(precio);
+                return Number.isFinite(numero) ? numero : null;
+            }
+
+            function precioTexto(producto) {
+                const precio = precioProducto(producto);
+                return precio === null
+                        ? "Consultar precio"
+                        : `S/ ${precio.toFixed(2)}`;
+            }
+
+            function enlaceDetalle(producto) {
+                const identificador = producto.slug || producto.id || nombreProducto(producto);
+                return `detalle-producto.html?producto=${encodeURIComponent(normalizar(identificador))}`;
+            }
+
+            function buscarProducto(catalogo) {
+                return catalogo.find(producto => {
+                    const identificadores = [
+                        producto.slug,
+                        producto.id,
+                        producto.nombre,
+                        producto.name,
+                        producto.titulo
+                    ].filter(Boolean).map(normalizar);
+
+                    return identificadores.includes(slugSolicitado);
+                });
+            }
+
+            function mostrarNoDisponible(mensaje) {
+                detalle.innerHTML = `
+                    <section class="detalle-estado">
+                        <i class="fa-solid fa-cookie-bite" aria-hidden="true"></i>
+                        <h1>${escaparHTML(mensaje)}</h1>
+                        <p>Vuelve al menú para elegir otro producto.</p>
+                        <a class="btn btn--primary" href="menu.html">Volver al menú</a>
+                    </section>`;
+            }
+
+            function renderizarProducto(producto, catalogo) {
+                const nombre = nombreProducto(producto);
+                const imagen = imagenProducto(producto);
+                const categoria = producto.categoria || producto.category || "Producto artesanal";
+                const descripcion = producto.descripcion || producto.description || "Consulta con nosotros para conocer más detalles de este producto.";
+                const precio = precioTexto(producto);
+                const galeria = Array.isArray(producto.imagenes) && producto.imagenes.length
+                        ? producto.imagenes
+                        : (imagen ? [imagen] : []);
+                const esTortaClasica = normalizar(categoria).includes("tortas-clasicas");
+                const esCotizacion = precioProducto(producto) === null;
+                const imagenPrincipal = galeria[0] || "";
+
+                detalle.innerHTML = `
+                    <section class="detalle-layout">
+                        <div class="detalle-galeria">
+                            <div class="detalle-imagen-principal">
+                                ${imagenPrincipal
+                        ? `<img id="imagenPrincipal" src="${escaparHTML(imagenPrincipal)}" alt="${escaparHTML(nombre)}">`
+                        : `<div class="sin-imagen"><i class="fa-solid fa-image"></i><p>Fotografía no disponible</p></div>`}
+                            </div>
+                            <div class="detalle-miniaturas" id="miniaturas">
+                                ${galeria.map((foto, indice) => `
+                                    <button type="button" class="miniatura ${indice === 0 ? "activa" : ""}"
+                                        data-foto="${escaparHTML(foto)}" aria-label="Ver fotografía ${indice + 1}">
+                                        <img src="${escaparHTML(foto)}" alt="${escaparHTML(nombre)} - foto ${indice + 1}">
+                                    </button>`).join("")}
+                            </div>
+                        </div>
+
+                        <div class="detalle-informacion">
+                            <span class="detalle-categoria">${escaparHTML(categoria)}</span>
+                            <h1>${escaparHTML(nombre)}</h1>
+                            <p class="detalle-precio">${escaparHTML(precio)}</p>
+                            <p class="detalle-descripcion">${escaparHTML(descripcion)}</p>
+
+                            ${producto.detalles ? `
+                                <div class="detalle-caracteristicas">
+                                    ${Object.entries(producto.detalles).map(([etiqueta, valor]) => `
+                                        <div class="caracteristica">
+                                            <span>${escaparHTML(etiqueta)}</span>
+                                            <strong>${escaparHTML(valor)}</strong>
+                                        </div>`).join("")}
+                                </div>` : ""}
+
+                            <p class="detalle-anticipacion">
+                                <i class="fa-regular fa-calendar"></i>
+                                ${escaparHTML(producto.anticipacion || (esTortaClasica ? "Solicitar con al menos 4 días de anticipación" : "Solicitar con al menos 4 días de anticipación"))}
+                            </p>
+                        </div>
+
+                        <aside class="detalle-compra">
+                            <h2><i class="fa-solid fa-cookie-bite"></i> ${esCotizacion ? "Consulta tu pedido" : "Tu pedido"}</h2>
+
+                            
+                            ${esTortaClasica ? `
+                         <label for="presentacion">Presentación</label>
+                         <select id="presentacion">
+                             ${Object.entries(producto.presentaciones || {}).map(([nombre, precio]) => `
+                                <option value="${nombre}">
+                                 ${nombre} - S/ ${Number(precio).toFixed(2)}
+                             </option>
+                         `).join("")}
+                          </select>
+` : ""}
+
+
+                            <label for="cantidad">Cantidad</label>
+                            <div class="cantidad-control">
+                                <button type="button" id="restar" aria-label="Disminuir cantidad">−</button>
+                                <output id="cantidad">1</output>
+                                <button type="button" id="sumar" aria-label="Aumentar cantidad">+</button>
+                            </div>
+
+                            <button type="button" class="btn-detalle btn-carrito" id="agregarCarrito">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                Agregar al carrito
+                            </button>
+
+                            <a class="btn-detalle btn-whatsapp" id="consultarWhatsApp" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-brands fa-whatsapp"></i>
+                                Consultar por WhatsApp
+                            </a>
+
+                            <p class="detalle-nota">La fecha y la entrega se coordinan según disponibilidad.</p>
+                            <p id="mensajeCarrito" class="mensaje-carrito" role="status"></p>
+                        </aside>
+                    </section>`;
+
+                const cantidadOutput = document.getElementById("cantidad");
+                let cantidad = 1;
+
+                document.getElementById("restar").addEventListener("click", () => {
+                    cantidad = Math.max(1, cantidad - 1);
+                    cantidadOutput.textContent = cantidad;
+                    actualizarWhatsApp();
+                });
+
+                document.getElementById("sumar").addEventListener("click", () => {
+                    cantidad += 1;
+                    cantidadOutput.textContent = cantidad;
+                    actualizarWhatsApp();
+                });
+
+                const presentacion = document.getElementById("presentacion");
+                if (presentacion) {
+                    presentacion.addEventListener("change", actualizarWhatsApp);
+                }
+
+                document.querySelectorAll(".miniatura").forEach(boton => {
+                    boton.addEventListener("click", () => {
+                        const principal = document.getElementById("imagenPrincipal");
+                        if (!principal)
+                            return;
+
+                        principal.src = boton.dataset.foto;
+                        document.querySelectorAll(".miniatura").forEach(item => item.classList.remove("activa"));
+                        boton.classList.add("activa");
+                    });
+                });
+
+                function actualizarWhatsApp() {
+                    const tamano = presentacion ? `\nPresentación: ${presentacion.value}` : "";
+                    const mensaje = `Hola, quisiera consultar por este producto:\nProducto: ${nombre}\nCantidad: ${cantidad}${tamano}\nPrecio mostrado: ${precio}`;
+                    document.getElementById("consultarWhatsApp").href =
+                            `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
+                }
+
+                actualizarWhatsApp();
+
+                document.getElementById("agregarCarrito").addEventListener("click", () => {
+                    if (esCotizacion) {
+                        document.getElementById("mensajeCarrito").textContent =
+                                "Este producto no tiene un precio registrado. Consúltalo por WhatsApp antes de agregarlo.";
+                        return;
+                    }
+
+                    let carrito = [];
+                    try {
+                        carrito = JSON.parse(localStorage.getItem("carritoLasDeliciasDeGra")) || [];
+                    } catch {
+                        carrito = [];
+                    }
+
+                    const identificador = normalizar(producto.slug || producto.id || nombre);
+                    const tamano = presentacion ? presentacion.value : "";
+                    const existente = carrito.find(item =>
+                        item.id === identificador && (item.presentacion || "") === tamano
+                    );
+
+                    if (existente) {
+                        existente.cantidad += cantidad;
+                    } else {
+                        carrito.push({
+                            id: identificador,
+                            nombre,
+                            imagen,
+                            precio: precioProducto(producto),
+                            cantidad,
+                            presentacion: tamano
+                        });
+                    }
+
+                    localStorage.setItem(CLAVE_CARRITO, JSON.stringify(carrito));
+                    actualizarContadorCarrito();
+                    window.dispatchEvent(new Event("carritoActualizado"));
+                    document.getElementById("mensajeCarrito").textContent =
+                            "Producto agregado al carrito.";
+                });
+
+                const relacionadosLista = catalogo
+                        .filter(item => item !== producto && (item.categoria || item.category) === categoria)
+                        .slice(0, 3);
+
+                if (relacionadosLista.length) {
+                    relacionados.innerHTML = relacionadosLista.map(item => {
+                        const foto = imagenProducto(item);
+                        return `
+                            <article class="relacionado-card">
+                                <a class="relacionado-imagen" href="${enlaceDetalle(item)}">
+                                    ${foto
+                                ? `<img src="${escaparHTML(foto)}" alt="${escaparHTML(nombreProducto(item))}" loading="lazy">`
+                                : `<span>Fotografía no disponible</span>`}
+                                </a>
+                                <div class="relacionado-contenido">
+                                    <h3>${escaparHTML(nombreProducto(item))}</h3>
+                                    <p>${escaparHTML(precioTexto(item))}</p>
+                                    <a href="${enlaceDetalle(item)}">Ver detalles <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </article>`;
+                    }).join("");
+                    seccionRelacionados.hidden = false;
+                }
+            }
+
+            const catalogo = obtenerCatalogo();
+            console.log("Catálogo:", localStorage.getItem("catalogoProductos"));
+            console.log("Producto solicitado:", new URLSearchParams(location.search).get("producto"));
+            const producto = buscarProducto(catalogo);
+
+            if (!slugSolicitado) {
+                mostrarNoDisponible("Selecciona un producto del menú");
+            } else if (!catalogo.length) {
+                mostrarNoDisponible("El catálogo todavía no está conectado");
+            } else if (!producto) {
+                mostrarNoDisponible("No encontramos ese producto en el catálogo");
+            } else {
+                renderizarProducto(producto, catalogo);
+            }
+
+            const toggle = document.getElementById("navbarToggle");
+            const enlaces = document.getElementById("navLinks");
+
+            toggle.addEventListener("click", () => {
+                const abierto = enlaces.classList.toggle("active");
+                toggle.setAttribute("aria-expanded", String(abierto));
+                toggle.setAttribute("aria-label", abierto ? "Cerrar menú" : "Abrir menú");
+            });
+
+            function actualizarContadorCarrito() {
+                const contador = document.getElementById("contadorCarrito");
+
+                if (!contador)
+                    return;
+
+                let carrito = [];
+
+                try {
+                    carrito = JSON.parse(localStorage.getItem(CLAVE_CARRITO)) || [];
+                } catch (error) {
+                    carrito = [];
+                }
+
+                const unidades = carrito.reduce((total, producto) => {
+                    return total + (Number(producto.cantidad) || 0);
+                }, 0);
+
+                contador.textContent = unidades;
+            }
+
+            actualizarContadorCarrito();
+        </script>
+    </body>
+</html>

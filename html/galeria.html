@@ -1,0 +1,980 @@
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta
+            name="description"
+            content="Explora las creaciones personalizadas de Las Delicias de Gra e inspírate para tu próxima celebración."
+            >
+
+        <title>Galería | Las Delicias de Gra</title>
+
+        <link rel="stylesheet" href="../css/global.css">
+        <link rel="stylesheet" href="../css/galeria.css">
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+            >
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+            >
+    </head>
+
+    <body>
+
+        <!-- ENCABEZADO -->
+        <header class="site-header">
+
+            <div class="top-bar">
+                <div class="top-bar__container">
+
+                    <div class="top-bar__contact">
+                        <a href="tel:+51945762189">
+                            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                            <span>945 762 189</span>
+                        </a>
+
+                        <a
+                            href="https://wa.me/51945762189"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >
+                            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                            <span>WhatsApp</span>
+                        </a>
+                    </div>
+
+                    <div class="top-bar__account">
+
+                        <a href="agregar-carrito.html"
+                           class="top-bar__cart"
+                           id="abrirCarrito"
+                           aria-label="Abrir carrito de compras">
+                            <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+                            <span>Mi carrito</span>
+                            <span class="cart-count" id="contadorCarrito">0</span>
+                        </a>
+
+                        <a href="login.html" id="loginLink">
+                            <i class="fa-solid fa-user" aria-hidden="true"></i>
+                            <span id="loginTexto">Iniciar sesión</span>
+                        </a>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <nav class="navbar" aria-label="Navegación principal">
+                <div class="navbar__container">
+
+                    <a href="../inicio.html" class="navbar__brand">
+                        <span class="navbar__brand-name">Las Delicias de Gra</span>
+                        <span class="navbar__brand-subtitle">Pastelería artesanal</span>
+                    </a>
+
+                    <button
+                        class="navbar__toggle"
+                        id="navbarToggle"
+                        type="button"
+                        aria-label="Abrir menú de navegación"
+                        aria-expanded="false"
+                        aria-controls="navLinks"
+                        >
+                        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                    </button>
+
+                    <ul class="nav-links" id="navLinks">
+                        <li><a href="../inicio.html">Inicio</a></li>
+                        <li><a href="nosotros.html">Nosotros</a></li>
+                        <li><a href="menu.html">Menú</a></li>
+                        <li>
+                            <a href="galeria.html" class="active" aria-current="page">
+                                Galería
+                            </a>
+                        </li>
+                        <li><a href="resenas.html">Reseñas</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+
+                </div>
+            </nav>
+
+        </header>
+
+        <main>
+
+            <!-- PORTADA -->
+            <section class="galeria-hero">
+                <div class="galeria-hero__overlay"></div>
+
+                <div class="galeria-hero__content">
+                    <span class="section-label">Cada detalle cuenta</span>
+
+                    <h1>Nuestras creaciones</h1>
+
+                    <p>
+                        Cada celebración tiene una historia. Descubre nuestras
+                        creaciones y encuentra inspiración para tus momentos
+                        especiales.
+                    </p>
+
+                    <a href="#coleccion" class="btn btn--light">
+                        Explorar galería
+                        <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </section>
+
+            <!-- INTRODUCCIÓN -->
+            <section class="galeria-intro section">
+                <div class="container">
+                    <span class="section-label">Momentos especiales</span>
+
+                    <h2>Un diseño para cada ocasión</h2>
+
+                    <p>
+                        Cada creación es una oportunidad para transformar una
+                        idea en algo especial. Explora nuestro portafolio de
+                        tortas personalizadas.
+                    </p>
+                </div>
+            </section>
+
+            <!-- GALERÍA -->
+            <section
+                class="galeria-coleccion section"
+                id="coleccion"
+                aria-labelledby="coleccion-title"
+                >
+                <div class="container">
+
+                    <div class="section-heading">
+                        <span class="section-label">Nuestro portafolio</span>
+
+                        <h2 id="coleccion-title">Inspiración para tu celebración</h2>
+
+                        <p>
+                            Filtra las creaciones por ocasión y selecciona una
+                            imagen para verla en mayor tamaño.
+                        </p>
+                    </div>
+
+                    <!-- FILTROS -->
+                    <div class="galeria-filtros" aria-label="Filtrar creaciones">
+
+                        <button
+                            type="button"
+                            class="filtro-btn active"
+                            data-filter="todos"
+                            aria-pressed="true"
+                            >
+                            Todas
+                        </button>
+
+                        <button
+                            type="button"
+                            class="filtro-btn"
+                            data-filter="cumpleanos"
+                            aria-pressed="false"
+                            >
+                            Cumpleaños
+                        </button>
+
+                        <button
+                            type="button"
+                            class="filtro-btn"
+                            data-filter="infantiles"
+                            aria-pressed="false"
+                            >
+                            Infantiles
+                        </button>
+
+                        <button
+                            type="button"
+                            class="filtro-btn"
+                            data-filter="eventos"
+                            aria-pressed="false"
+                            >
+                            Eventos especiales
+                        </button>
+
+                        <button
+                            type="button"
+                            class="filtro-btn"
+                            data-filter="elegantes"
+                            aria-pressed="false"
+                            >
+                            Diseños elegantes
+                        </button>
+
+                    </div>
+
+                    <!--
+                        PARA CLASIFICAR CADA TORTA:
+                        Cambia solamente data-category en cada artículo.
+    
+                        Valores permitidos:
+                        "cumpleanos"
+                        "infantiles"
+                        "eventos"
+                        "elegantes"
+    
+                        Si todavía no has decidido su categoría, usa "sin-clasificar".
+                    -->
+
+                    <div class="galeria-grid" id="galeriaGrid">
+
+                        <!-- 1. Birthday Celebration Cake -->
+                        <article class="galeria-item" data-category="cumpleanos">
+                            <button
+                                class="galeria-item__imagen"
+                                type="button"
+                                data-title="Birthday Celebration Cake"
+                                aria-label="Ampliar Birthday Celebration Cake"
+                                >
+                                <img
+                                    src="../fotos/galeria/BirthdayCelebrationCake.png"
+                                    alt="Birthday Celebration Cake"
+                                    loading="lazy"
+                                    >
+                                <span class="galeria-item__zoom">
+                                    <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                            <div class="galeria-item__info">
+                                <span>Por clasificar</span>
+                                <h3>Birthday Celebration Cake</h3>
+                            </div>
+                        </article>
+
+                        <!-- 2. Blooming Celebration -->
+                        <article class="galeria-item" data-category="eventos">
+                            <button
+                                class="galeria-item__imagen"
+                                type="button"
+                                data-title="Blooming Celebration"
+                                aria-label="Ampliar Blooming Celebration"
+                                >
+                                <img
+                                    src="../fotos/galeria/BloomingCelebration.png"
+                                    alt="Blooming Celebration"
+                                    loading="lazy"
+                                    >
+                                <span class="galeria-item__zoom">
+                                    <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                            <div class="galeria-item__info">
+                                <span>Por clasificar</span>
+                                <h3>Blooming Celebration</h3>
+                            </div>
+                        </article>
+
+                        <!-- 3. Blooming Elegance -->
+                        <article class="galeria-item" data-category="elegantes">
+                            <button
+                                class="galeria-item__imagen"
+                                type="button"
+                                data-title="Blooming Elegance"
+                                aria-label="Ampliar Blooming Elegance"
+                                >
+                                <img
+                                    src="../fotos/galeria/BloomingElegance.png"
+                                    alt="Blooming Elegance"
+                                    loading="lazy"
+                                    >
+                                <span class="galeria-item__zoom">
+                                    <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                            <div class="galeria-item__info">
+                                <span>Por clasificar</span>
+                                <h3>Blooming Elegance</h3>
+                            </div>
+                        </article>
+
+                        <!-- 4. Blue Sonic Party -->
+                        <article class="galeria-item" data-category="infantiles">
+                            <button
+                                class="galeria-item__imagen"
+                                type="button"
+                                data-title="Blue Sonic Party"
+                                aria-label="Ampliar Blue Sonic Party"
+                                >
+                                <img
+                                    src="../fotos/galeria/BlueSonicParty.png"
+                                    alt="Blue Sonic Party"
+                                    loading="lazy"
+                                    >
+                                <span class="galeria-item__zoom">
+                                    <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                            <div class="galeria-item__info">
+                                <span>Por clasificar</span>
+                                <h3>Blue Sonic Party</h3>
+                            </div>
+                        </article>
+
+                        <!-- 5. Blue Victory Cake -->
+                        <article class="galeria-item" data-category="cumpleanos">
+                            <button
+                                class="galeria-item__imagen"
+                                type="button"
+                                data-title="Blue Victory Cake"
+                                aria-label="Ampliar Blue Victory Cake"
+                                >
+                                <img
+                                    src="../fotos/galeria/BlueVictoryCake.png"
+                                    alt="Blue Victory Cake"
+                                    loading="lazy"
+                                    >
+                                <span class="galeria-item__zoom">
+                                    <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                            <div class="galeria-item__info">
+                                <span>Por clasificar</span>
+                                <h3>Blue Victory Cake</h3>
+                            </div>
+                        </article>
+
+                        <!-- 6. Gentleman Whiskey Cake -->
+                        <article class="galeria-item" data-category="elegantes">
+                            <button
+                                class="galeria-item__imagen"
+                                type="button"
+                                data-title="Gentleman Whiskey Cake"
+                                aria-label="Ampliar Gentleman Whiskey Cake"
+                                >
+                                <img
+                                    src="../fotos/galeria/GentlemanWhiskeyCake.png"
+                                    alt="Gentleman Whiskey Cake"
+                                    loading="lazy"
+                                    >
+                                <span class="galeria-item__zoom">
+                                    <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                            <div class="galeria-item__info">
+                                <span>Por clasificar</span>
+                                <h3>Gentleman Whiskey Cake</h3>
+                            </div>
+                        </article>
+
+                        <!-- 7. Golden Butterfly Cake -->
+                        <article class="galeria-item" data-category="cumpleanos">
+                            <button
+                                class="galeria-item__imagen"
+                                type="button"
+                                data-title="Golden Butterfly Cake"
+                                aria-label="Ampliar Golden Butterfly Cake"
+                                >
+                                <img
+                                    src="../fotos/galeria/GoldenButterflyCake.png"
+                                    alt="Golden Butterfly Cake"
+                                    loading="lazy"
+                                    >
+                                <span class="galeria-item__zoom">
+                                    <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                            <div class="galeria-item__info">
+                                <span>Por clasificar</span>
+                                <h3>Golden Butterfly Cake</h3>
+                            </div>
+                        </article>
+
+                        <!-- 8. Golden Crown Cake -->
+                        <article class="galeria-item" data-category="cumpleanos">
+                            <button
+                                class="galeria-item__imagen"
+                                type="button"
+                                data-title="Golden Crown Cake"
+                                aria-label="Ampliar Golden Crown Cake"
+                                >
+                                <img
+                                    src="../fotos/galeria/GoldenCrownCake.png"
+                                    alt="Golden Crown Cake"
+                                    loading="lazy"
+                                    >
+                                <span class="galeria-item__zoom">
+                                    <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                            <div class="galeria-item__info">
+                                <span>Por clasificar</span>
+                                <h3>Golden Crown Cake</h3>
+                            </div>
+                        </article>
+
+                        <!-- 9. Golden Unity Cake -->
+                        <article class="galeria-item" data-category="cumpleanos">
+                            <button
+                                class="galeria-item__imagen"
+                                type="button"
+                                data-title="Golden Unity Cake"
+                                aria-label="Ampliar Golden Unity Cake"
+                                >
+                                <img
+                                    src="../fotos/galeria/GoldenUnityCake.png"
+                                    alt="Golden Unity Cake"
+                                    loading="lazy"
+                                    >
+                                <span class="galeria-item__zoom">
+                                    <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                            <div class="galeria-item__info">
+                                <span>Por clasificar</span>
+                                <h3>Golden Unity Cake</h3>
+                            </div>
+                        </article>
+
+                        <!-- 10. Graduation Celebration -->
+                        <article class="galeria-item" data-category="eventos">
+                            <button
+                                class="galeria-item__imagen"
+                                type="button"
+                                data-title="Graduation Celebration"
+                                aria-label="Ampliar Graduation Celebration"
+                                >
+                                <img
+                                    src="../fotos/galeria/GraduationCelebration.png"
+                                    alt="Graduation Celebration"
+                                    loading="lazy"
+                                    >
+                                <span class="galeria-item__zoom">
+                                    <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                            <div class="galeria-item__info">
+                                <span>Por clasificar</span>
+                                <h3>Graduation Celebration</h3>
+                            </div>
+                        </article>
+
+                        <!-- 11. Jungle Baby Shower -->
+                        <article class="galeria-item" data-category="eventos">
+                            <button
+                                class="galeria-item__imagen"
+                                type="button"
+                                data-title="Jungle Baby Shower"
+                                aria-label="Ampliar Jungle Baby Shower"
+                                >
+                                <img
+                                    src="../fotos/galeria/JungleBabyShower.png"
+                                    alt="Jungle Baby Shower"
+                                    loading="lazy"
+                                    >
+                                <span class="galeria-item__zoom">
+                                    <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                            <div class="galeria-item__info">
+                                <span>Por clasificar</span>
+                                <h3>Jungle Baby Shower</h3>
+                            </div>
+                        </article>
+
+                        <!-- 12. Little Bear Cake -->
+                        <article class="galeria-item" data-category="eventos">
+                            <button
+                                class="galeria-item__imagen"
+                                type="button"
+                                data-title="Little Bear Cake"
+                                aria-label="Ampliar Little Bear Cake"
+                                >
+                                <img
+                                    src="../fotos/galeria/LittleBearCake.png"
+                                    alt="Little Bear Cake"
+                                    loading="lazy"
+                                    >
+                                <span class="galeria-item__zoom">
+                                    <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                            <div class="galeria-item__info">
+                                <span>Por clasificar</span>
+                                <h3>Little Bear Cake</h3>
+                            </div>
+                        </article>
+
+                        <!-- 13. Little Dream Cake -->
+                        <article class="galeria-item" data-category="infantiles">
+                            <button
+                                class="galeria-item__imagen"
+                                type="button"
+                                data-title="Little Dream Cake"
+                                aria-label="Ampliar Little Dream Cake"
+                                >
+                                <img
+                                    src="../fotos/galeria/LittleDreamCake.png"
+                                    alt="Little Dream Cake"
+                                    loading="lazy"
+                                    >
+                                <span class="galeria-item__zoom">
+                                    <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                            <div class="galeria-item__info">
+                                <span>Por clasificar</span>
+                                <h3>Little Dream Cake</h3>
+                            </div>
+                        </article>
+
+                        <!-- 14. Moon Dreams Cake -->
+                        <article class="galeria-item" data-category="cumpleanos">
+                            <button
+                                class="galeria-item__imagen"
+                                type="button"
+                                data-title="Moon Dreams Cake"
+                                aria-label="Ampliar Moon Dreams Cake"
+                                >
+                                <img
+                                    src="../fotos/galeria/MoonDreamsCake.png"
+                                    alt="Moon Dreams Cake"
+                                    loading="lazy"
+                                    >
+                                <span class="galeria-item__zoom">
+                                    <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                            <div class="galeria-item__info">
+                                <span>Por clasificar</span>
+                                <h3>Moon Dreams Cake</h3>
+                            </div>
+                        </article>
+
+                        <!-- 15. Pink Blossom Cake -->
+                        <article class="galeria-item" data-category="infantiles">
+                            <button
+                                class="galeria-item__imagen"
+                                type="button"
+                                data-title="Pink Blossom Cake"
+                                aria-label="Ampliar Pink Blossom Cake"
+                                >
+                                <img
+                                    src="../fotos/galeria/PinkBlossomCake.png"
+                                    alt="Pink Blossom Cake"
+                                    loading="lazy"
+                                    >
+                                <span class="galeria-item__zoom">
+                                    <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                            <div class="galeria-item__info">
+                                <span>Por clasificar</span>
+                                <h3>Pink Blossom Cake</h3>
+                            </div>
+                        </article>
+
+                        <!-- 16. Pink Lily Elegance -->
+                        <article class="galeria-item" data-category="cumpleanos">
+                            <button
+                                class="galeria-item__imagen"
+                                type="button"
+                                data-title="Pink Lily Elegance"
+                                aria-label="Ampliar Pink Lily Elegance"
+                                >
+                                <img
+                                    src="../fotos/galeria/PinkLilyElegance.png"
+                                    alt="Pink Lily Elegance"
+                                    loading="lazy"
+                                    >
+                                <span class="galeria-item__zoom">
+                                    <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                            <div class="galeria-item__info">
+                                <span>Por clasificar</span>
+                                <h3>Pink Lily Elegance</h3>
+                            </div>
+                        </article>
+
+                        <!-- 17. Pink Royal -->
+                        <article class="galeria-item" data-category="elegantes">
+                            <button
+                                class="galeria-item__imagen"
+                                type="button"
+                                data-title="Pink Royal"
+                                aria-label="Ampliar Pink Royal"
+                                >
+                                <img
+                                    src="../fotos/galeria/PinkRoyal.png"
+                                    alt="Pink Royal"
+                                    loading="lazy"
+                                    >
+                                <span class="galeria-item__zoom">
+                                    <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                            <div class="galeria-item__info">
+                                <span>Por clasificar</span>
+                                <h3>Pink Royal</h3>
+                            </div>
+                        </article>
+
+                        <!-- 18. Romantic Moments Cake -->
+                        <article class="galeria-item" data-category="cumpleanos">
+                            <button
+                                class="galeria-item__imagen"
+                                type="button"
+                                data-title="Romantic Moments Cake"
+                                aria-label="Ampliar Romantic Moments Cake"
+                                >
+                                <img
+                                    src="../fotos/galeria/RomanticMomentsCake.png"
+                                    alt="Romantic Moments Cake"
+                                    loading="lazy"
+                                    >
+                                <span class="galeria-item__zoom">
+                                    <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                            <div class="galeria-item__info">
+                                <span>Por clasificar</span>
+                                <h3>Romantic Moments Cake</h3>
+                            </div>
+                        </article>
+
+                        <!-- 19. Royal Blue Cake -->
+                        <article class="galeria-item" data-category="cumpleanos">
+                            <button
+                                class="galeria-item__imagen"
+                                type="button"
+                                data-title="Royal Blue Cake"
+                                aria-label="Ampliar Royal Blue Cake"
+                                >
+                                <img
+                                    src="../fotos/galeria/RoyalBlueCake.png"
+                                    alt="Royal Blue Cake"
+                                    loading="lazy"
+                                    >
+                                <span class="galeria-item__zoom">
+                                    <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                            <div class="galeria-item__info">
+                                <span>Por clasificar</span>
+                                <h3>Royal Blue Cake</h3>
+                            </div>
+                        </article>
+
+                    </div>
+
+                    <p class="galeria-sin-resultados" id="sinResultados" hidden>
+                        Todavía no hay creaciones asignadas a esta categoría.
+                    </p>
+
+                </div>
+            </section>
+
+            <!-- INVITACIÓN -->
+            <section class="galeria-cta">
+                <div class="container galeria-cta__contenido">
+
+                    <span class="section-label">Tu idea, nuestra creatividad</span>
+
+                    <h2>¿Imaginas una torta especial?</h2>
+
+                    <p>
+                        Cuéntanos qué tienes en mente y conversemos sobre un diseño
+                        para tu celebración. Las tortas personalizadas se cotizan
+                        según sus características.
+                    </p>
+
+                    <a
+                        href="https://wa.me/51945762189?text=Hola%2C%20quisiera%20consultar%20por%20una%20torta%20personalizada."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn--primary"
+                        >
+                        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                        Consultar por WhatsApp
+                    </a>
+
+                </div>
+            </section>
+
+        </main>
+
+        <!-- VISOR DE IMÁGENES -->
+        <div
+            class="visor"
+            id="visor"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="visorTitulo"
+            aria-hidden="true"
+            >
+            <div class="visor__contenido">
+
+                <button
+                    type="button"
+                    class="visor__cerrar"
+                    id="cerrarVisor"
+                    aria-label="Cerrar imagen"
+                    >
+                    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                </button>
+
+                <img src="" alt="" id="visorImagen">
+
+                <h2 id="visorTitulo"></h2>
+
+            </div>
+        </div>
+
+        <!-- PIE DE PÁGINA -->
+        <footer class="footer">
+            <div class="footer__container">
+
+                <div class="footer__about">
+                    <h3>Las Delicias de Gra</h3>
+
+                    <p>
+                        Creamos tortas, postres y bocaditos artesanales para
+                        convertir cada celebración en un momento inolvidable.
+                    </p>
+                </div>
+
+                <div class="footer__links">
+                    <h4>Enlaces</h4>
+
+                    <ul>
+                        <li><a href="../inicio.html">Inicio</a></li>
+                        <li><a href="nosotros.html">Nosotros</a></li>
+                        <li><a href="menu.html">Menú</a></li>
+                        <li><a href="galeria.html">Galería</a></li>
+                        <li><a href="resenas.html">Reseñas</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__schedule">
+                    <h4>Horario de atención</h4>
+
+                    <p>
+                        <span>Lunes a domingo</span>
+                        <span>9:00 a. m. – 9:00 p. m.</span>
+                    </p>
+                </div>
+
+                <div class="footer__contact">
+                    <h4>Contacto</h4>
+
+                    <a
+                        href="https://maps.app.goo.gl/tDPpxJyVBvx9dZFa7"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >
+                        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                        <span>Chorrillos, Lima, Perú</span>
+                    </a>
+
+                    <a href="tel:+51945762189">
+                        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                        <span>945 762 189</span>
+                    </a>
+
+                    <a
+                        href="https://wa.me/51945762189"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >
+                        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                </div>
+
+
+                <div class="footer__social">
+                    <h4>Síguenos</h4>
+
+                    <div class="social-icons">
+                        <a
+                            href="https://www.facebook.com/search/people/?q=Graciela%20Alina%20Fasanando%20Huapaya"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Buscar a Graciela Alina Fasanando Huapaya en Facebook"
+                            >
+                            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+                        </a>
+
+                        <a
+                            href="https://www.instagram.com/las_delicias_de_gra/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Instagram de Las Delicias de Gra"
+                            >
+                            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                        </a>
+
+                        <a
+                            href="https://wa.me/51945762189"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="WhatsApp de Las Delicias de Gra"
+                            >
+                            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="footer__bottom">
+                <p>© 2026 Las Delicias de Gra. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+
+        <!-- SCRIPT INTEGRADO: MENÚ, FILTROS Y VISOR -->
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+
+                /* MENÚ MÓVIL */
+                const navbarToggle = document.getElementById("navbarToggle");
+                const navLinks = document.getElementById("navLinks");
+
+                if (navbarToggle && navLinks) {
+                    navbarToggle.addEventListener("click", () => {
+                        const abierto =
+                                navbarToggle.getAttribute("aria-expanded") === "true";
+
+                        navbarToggle.setAttribute(
+                                "aria-expanded",
+                                String(!abierto)
+                                );
+
+                        navLinks.classList.toggle("active", !abierto);
+
+                        navbarToggle.setAttribute(
+                                "aria-label",
+                                abierto
+                                ? "Abrir menú de navegación"
+                                : "Cerrar menú de navegación"
+                                );
+                    });
+
+                    navLinks.querySelectorAll("a").forEach((enlace) => {
+                        enlace.addEventListener("click", () => {
+                            navLinks.classList.remove("active");
+                            navbarToggle.setAttribute("aria-expanded", "false");
+                            navbarToggle.setAttribute(
+                                    "aria-label",
+                                    "Abrir menú de navegación"
+                                    );
+                        });
+                    });
+                }
+
+                /* FILTROS */
+                const botonesFiltro = document.querySelectorAll(".filtro-btn");
+                const tarjetas = document.querySelectorAll(".galeria-item");
+                const mensajeVacio = document.getElementById("sinResultados");
+
+                botonesFiltro.forEach((boton) => {
+                    boton.addEventListener("click", () => {
+                        const categoria = boton.dataset.filter;
+                        let cantidadVisible = 0;
+
+                        botonesFiltro.forEach((otroBoton) => {
+                            const seleccionado = otroBoton === boton;
+
+                            otroBoton.classList.toggle("active", seleccionado);
+                            otroBoton.setAttribute(
+                                    "aria-pressed",
+                                    String(seleccionado)
+                                    );
+                        });
+
+                        tarjetas.forEach((tarjeta) => {
+                            const mostrar =
+                                    categoria === "todos" ||
+                                    tarjeta.dataset.category === categoria;
+
+                            tarjeta.hidden = !mostrar;
+
+                            if (mostrar) {
+                                cantidadVisible++;
+                            }
+                        });
+
+                        mensajeVacio.hidden = cantidadVisible > 0;
+                    });
+                });
+
+                /* VISOR AMPLIADO */
+                const visor = document.getElementById("visor");
+                const visorImagen = document.getElementById("visorImagen");
+                const visorTitulo = document.getElementById("visorTitulo");
+                const cerrarVisor = document.getElementById("cerrarVisor");
+                const botonesImagen = document.querySelectorAll(
+                        ".galeria-item__imagen"
+                        );
+
+                let elementoAnterior = null;
+
+                function abrirVisor(boton) {
+                    elementoAnterior = boton;
+
+                    const imagen = boton.querySelector("img");
+
+                    visorImagen.src = imagen.src;
+                    visorImagen.alt = imagen.alt;
+                    visorTitulo.textContent = boton.dataset.title;
+
+                    visor.classList.add("visor--abierto");
+                    visor.setAttribute("aria-hidden", "false");
+                    document.body.classList.add("visor-activo");
+
+                    cerrarVisor.focus();
+                }
+
+                function ocultarVisor() {
+                    visor.classList.remove("visor--abierto");
+                    visor.setAttribute("aria-hidden", "true");
+                    document.body.classList.remove("visor-activo");
+
+                    visorImagen.src = "";
+
+                    if (elementoAnterior) {
+                        elementoAnterior.focus();
+                    }
+                }
+
+                botonesImagen.forEach((boton) => {
+                    boton.addEventListener("click", () => abrirVisor(boton));
+                });
+
+                cerrarVisor.addEventListener("click", ocultarVisor);
+
+                visor.addEventListener("click", (evento) => {
+                    if (evento.target === visor) {
+                        ocultarVisor();
+                    }
+                });
+
+                document.addEventListener("keydown", (evento) => {
+                    if (
+                            evento.key === "Escape" &&
+                            visor.classList.contains("visor--abierto")
+                            ) {
+                        ocultarVisor();
+                    }
+                });
+
+            });
+        </script>
+        <script src="../js/sesion.js"></script>
+    </body>
+</html>

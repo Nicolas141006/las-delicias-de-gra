@@ -1,0 +1,763 @@
+/* =====================================================
+   LAS DELICIAS DE GRA
+   PÁGINA DE INICIO
+===================================================== */
+
+/* =====================================================
+   1. HERO PRINCIPAL
+===================================================== */
+
+.hero {
+  position: relative;
+  min-height: 620px;
+  padding: 80px 7%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  background-image: url("../WEB_PROY/Fotos/tortas-personalizadas/BloomingElegance.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(43, 27, 20, 0.84) 0%,
+    rgba(43, 27, 20, 0.58) 50%,
+    rgba(43, 27, 20, 0.17) 100%
+  );
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  width: min(680px, 100%);
+  color: var(--blanco);
+}
+
+.hero__eyebrow {
+  display: block;
+  margin-bottom: 13px;
+  color: #e1ad72;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  max-width: 670px;
+  margin-bottom: 22px;
+  color: var(--blanco);
+  font-family: var(--fuente-titulos);
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  line-height: 1.06;
+}
+
+.hero p {
+  max-width: 590px;
+  margin-bottom: 32px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+/* El botón outline del hero debe ser blanco */
+
+.hero .btn--outline {
+  color: var(--blanco);
+  border-color: rgba(255, 255, 255, 0.78);
+}
+
+.hero .btn--outline:hover {
+  color: var(--chocolate);
+  background: var(--blanco);
+  border-color: var(--blanco);
+}
+
+/* =====================================================
+   2. SECCIONES GENERALES DEL INICIO
+===================================================== */
+
+.home-section {
+  padding: 100px 7%;
+}
+
+/* =====================================================
+   3. CATEGORÍAS
+===================================================== */
+
+.categories-section {
+  background: var(--crema);
+}
+
+.category-grid {
+  width: min(1180px, 100%);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.category-card {
+  position: relative;
+  min-height: 410px;
+  overflow: hidden;
+  border-radius: var(--radio);
+  color: var(--blanco);
+  background: var(--chocolate);
+  box-shadow: var(--sombra);
+  isolation: isolate;
+}
+
+.category-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(35, 23, 17, 0.02) 18%,
+    rgba(35, 23, 17, 0.2) 48%,
+    rgba(35, 23, 17, 0.88) 100%
+  );
+}
+
+.category-card img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease;
+}
+
+.category-card:hover img {
+  transform: scale(1.06);
+}
+
+.category-card__content {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  padding: 30px;
+}
+
+.category-card h3 {
+  margin-bottom: 10px;
+  color: var(--blanco);
+  font-family: var(--fuente-titulos);
+  font-size: 1.75rem;
+}
+
+.category-card p {
+  margin-bottom: 18px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+.category-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--blanco);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: gap var(--transicion);
+}
+
+.category-card:hover .category-card__link {
+  gap: 13px;
+}
+
+/* =====================================================
+   4. PRESENTACIÓN DE LA PASTELERÍA
+===================================================== */
+
+.about-preview {
+  width: min(1180px, 86%);
+  margin: 100px auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 65px;
+}
+
+.about-preview__image {
+  position: relative;
+}
+
+.about-preview__image::before {
+  content: "";
+  position: absolute;
+  top: 25px;
+  right: -22px;
+  bottom: -22px;
+  left: 25px;
+  z-index: -1;
+  border-radius: var(--radio-grande);
+  background: var(--rosa-claro);
+}
+
+.about-preview__image img {
+  width: 100%;
+  min-height: 500px;
+  border-radius: var(--radio-grande);
+  box-shadow: var(--sombra);
+}
+
+.about-preview__content h2 {
+  margin-bottom: 18px;
+  color: var(--chocolate);
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.about-preview__content p {
+  margin-bottom: 18px;
+  color: var(--gris);
+  line-height: 1.85;
+}
+
+.about-preview__features {
+  margin: 28px 0;
+  display: grid;
+  gap: 17px;
+}
+
+.about-preview__feature {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.about-preview__feature i {
+  width: 43px;
+  height: 43px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--dorado-oscuro);
+  background: var(--rosa-claro);
+}
+
+.about-preview__feature span {
+  color: var(--chocolate);
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+/* =====================================================
+   5. PRODUCTOS DESTACADOS
+===================================================== */
+
+.featured-section {
+  background: var(--crema-oscuro);
+}
+
+.featured-grid {
+  width: min(1180px, 100%);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.featured-card {
+  overflow: hidden;
+  border: 1px solid rgba(232, 221, 221, 0.8);
+  border-radius: var(--radio);
+  background: var(--blanco);
+  box-shadow: var(--sombra-suave);
+  transition:
+    transform var(--transicion),
+    box-shadow var(--transicion);
+}
+
+.featured-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--sombra-fuerte);
+}
+
+.featured-card__image {
+  position: relative;
+  overflow: hidden;
+}
+
+.featured-card img {
+  width: 100%;
+  height: 285px;
+  transition: transform 0.5s ease;
+}
+
+.featured-card:hover img {
+  transform: scale(1.05);
+}
+
+.featured-card__content {
+  padding: 25px;
+}
+
+.featured-card h3 {
+  margin-bottom: 10px;
+  color: var(--chocolate);
+  font-family: var(--fuente-titulos);
+  font-size: 1.45rem;
+}
+
+.featured-card p {
+  min-height: 54px;
+  color: var(--gris);
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+.featured-card__footer {
+  margin-top: 22px;
+  padding-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  border-top: 1px solid var(--gris-borde);
+}
+
+.featured-card__footer strong {
+  color: var(--dorado-oscuro);
+  font-size: 1.1rem;
+}
+
+.featured-card__footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--chocolate);
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition:
+    color var(--transicion),
+    gap var(--transicion);
+}
+
+.featured-card__footer a:hover {
+  gap: 11px;
+  color: var(--dorado-oscuro);
+}
+
+.featured-section__action {
+  margin-top: 45px;
+  text-align: center;
+}
+/* =====================================================
+   6. BENEFICIOS
+===================================================== */
+
+.benefits-section {
+  padding: 100px 7%;
+  background: var(--blanco);
+}
+
+.benefits-grid {
+  width: min(900px, 100%);
+  margin: 65px auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 90px;
+}
+
+.benefit,
+.benefit-card {
+  width: 330px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.benefit__icon,
+.benefit-card__icon {
+  width: 68px;
+  height: 68px;
+  margin-bottom: 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--dorado-oscuro);
+  background: var(--rosa-claro);
+  font-size: 1.35rem;
+}
+
+.benefit h3,
+.benefit-card h3 {
+  margin-bottom: 10px;
+  color: var(--chocolate);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.benefit p,
+.benefit-card p {
+  max-width: 330px;
+  color: var(--gris);
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+/* =====================================================
+   7. RESEÑAS DESTACADAS
+===================================================== */
+
+.testimonials-section {
+  background: var(--crema);
+}
+
+.testimonials-grid {
+  width: min(1180px, 100%);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.testimonial-card {
+  position: relative;
+  padding: 34px;
+  border: 1px solid var(--gris-borde);
+  border-radius: var(--radio);
+  background: var(--blanco);
+  box-shadow: var(--sombra-suave);
+  transition:
+    transform var(--transicion),
+    box-shadow var(--transicion);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-7px);
+  box-shadow: var(--sombra);
+}
+
+.testimonial-card::before {
+  content: "\f10d";
+  position: absolute;
+  top: 23px;
+  right: 27px;
+  color: rgba(201, 145, 93, 0.18);
+  font-family: "Font Awesome 6 Free";
+  font-size: 2.3rem;
+  font-weight: 900;
+}
+
+.testimonial-card__header {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.testimonial-avatar {
+  width: 54px;
+  height: 54px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--rosa-claro);
+  color: var(--chocolate);
+  font-family: var(--fuente-titulos);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.testimonial-card h3 {
+  margin-bottom: 3px;
+  color: var(--chocolate);
+  font-size: 0.95rem;
+}
+
+.testimonial-card__verified {
+  color: var(--verde-exito);
+  font-size: 0.7rem;
+}
+
+.stars {
+  margin-bottom: 16px;
+  color: #e9ad43;
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+}
+
+.testimonial-card blockquote,
+.testimonial-card p {
+  color: var(--gris);
+  font-size: 0.84rem;
+  font-style: normal;
+  line-height: 1.8;
+}
+
+.testimonial-card time {
+  display: block;
+  margin-top: 18px;
+  color: #9a8983;
+  font-size: 0.72rem;
+}
+
+/* =====================================================
+   8. CTA DE PEDIDOS
+===================================================== */
+
+.order-cta {
+  padding: 75px 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  background:
+    linear-gradient(
+      rgba(61, 43, 31, 0.94),
+      rgba(61, 43, 31, 0.94)
+    ),
+    url("../Fotos/banner-inicio.jpg") center / cover no-repeat;
+}
+
+.order-cta__content {
+  max-width: 760px;
+}
+
+.order-cta .section-label {
+  color: #e1ad72;
+}
+
+.order-cta h2 {
+  margin-bottom: 15px;
+  color: var(--blanco);
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.order-cta p {
+  color: rgba(255, 255, 255, 0.76);
+  line-height: 1.75;
+}
+
+.order-cta__actions {
+  flex-shrink: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+}
+
+/* =====================================================
+   9. RESPONSIVE: TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+  .category-grid,
+  .featured-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .category-card:last-child,
+  .featured-card:last-child {
+    grid-column: 1 / -1;
+    width: min(550px, 100%);
+    justify-self: center;
+  }
+
+  .about-preview {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .about-preview__image {
+    width: min(680px, 100%);
+    margin-inline: auto;
+  }
+
+  .about-preview__image img {
+    min-height: 430px;
+  }
+
+  .benefits-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .benefit:last-child {
+    grid-column: 1 / -1;
+    width: min(500px, 100%);
+    justify-self: center;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .testimonial-card:last-child {
+    grid-column: 1 / -1;
+    width: min(550px, 100%);
+    justify-self: center;
+  }
+
+  .order-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* =====================================================
+   10. RESPONSIVE: CELULARES
+===================================================== */
+
+@media (max-width: 680px) {
+  .hero {
+    min-height: 590px;
+    padding: 70px 6%;
+    text-align: center;
+    background-position: 62% center;
+  }
+
+  .hero__overlay {
+    background: rgba(43, 27, 20, 0.71);
+  }
+
+  .hero__content {
+    margin-inline: auto;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 12vw, 3.4rem);
+  }
+
+  .hero p {
+    font-size: 0.94rem;
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .home-section {
+    padding: 70px 6%;
+  }
+
+  .category-grid,
+  .featured-grid,
+  .benefits-grid,
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .category-card:last-child,
+  .featured-card:last-child,
+  .benefit:last-child,
+  .testimonial-card:last-child {
+    grid-column: auto;
+    width: 100%;
+  }
+
+  .category-card {
+    min-height: 385px;
+  }
+
+  .category-card__content {
+    padding: 25px;
+  }
+
+  .about-preview {
+    width: 88%;
+    margin: 75px auto;
+  }
+
+  .about-preview__image::before {
+    top: 16px;
+    right: -12px;
+    bottom: -14px;
+    left: 16px;
+  }
+
+  .about-preview__image img {
+    min-height: 340px;
+  }
+
+  .about-preview__content {
+    text-align: center;
+  }
+
+  .about-preview__feature {
+    justify-content: center;
+    text-align: left;
+  }
+
+  .featured-card img {
+    height: 255px;
+  }
+
+  .benefits-section {
+    padding: 70px 6%;
+  }
+
+  .testimonial-card {
+    padding: 28px 24px;
+  }
+
+  .order-cta {
+    padding: 65px 7%;
+    text-align: center;
+  }
+
+  .order-cta__actions {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+/* =====================================================
+   11. DISPOSITIVOS PEQUEÑOS
+===================================================== */
+
+@media (max-width: 420px) {
+  .hero {
+    min-height: 550px;
+  }
+
+  .hero h1 {
+    font-size: 2.35rem;
+  }
+
+  .hero__eyebrow {
+    font-size: 0.68rem;
+  }
+
+  .category-card {
+    min-height: 350px;
+  }
+
+  .category-card h3 {
+    font-size: 1.5rem;
+  }
+
+  .about-preview {
+    width: 90%;
+  }
+
+  .about-preview__image img {
+    min-height: 290px;
+  }
+
+  .featured-card__footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta
+            name="description"
+            content="Inicia sesión o crea tu cuenta de cliente en Las Delicias de Gra."
+            >
+
+        <title>Acceso de clientes | Las Delicias de Gra</title>
+
+        <link rel="stylesheet" href="../css/global.css">
+        <link rel="stylesheet" href="../css/login.css">
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+            >
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+            >
+    </head>
+
+    <body class="login-page">
+
+        <main class="login-layout">
+
+            <!-- PANEL INFORMATIVO -->
+            <section class="login-welcome">
+                <a href="../inicio.html" class="login-brand">
+                    <span class="login-brand__icon">
+                        <i class="fa-solid fa-cake-candles" aria-hidden="true"></i>
+                    </span>
+
+                    <span>
+                        <strong>Las Delicias de Gra</strong>
+                        <small>Pastelería artesanal</small>
+                    </span>
+                </a>
+
+                <div class="login-welcome__content">
+                    <span class="login-eyebrow">Un espacio para ti</span>
+
+                    <h1>Momentos dulces, experiencias especiales.</h1>
+
+                    <p>
+                        Crea tu cuenta para que, cuando habilitemos el sistema,
+                        puedas consultar tus pedidos y compartir tu experiencia
+                        con nosotros.
+                    </p>
+
+                    <div class="login-benefits">
+                        <div class="login-benefit">
+                            <span><i class="fa-solid fa-receipt" aria-hidden="true"></i></span>
+                            <div>
+                                <strong>Consulta tus pedidos</strong>
+                                <p>Revisa el estado de tus compras desde tu cuenta.</p>
+                            </div>
+                        </div>
+
+                        <div class="login-benefit">
+                            <span><i class="fa-solid fa-heart" aria-hidden="true"></i></span>
+                            <div>
+                                <strong>Guarda tus experiencias</strong>
+                                <p>Comparte tus opiniones después de recibir tu pedido.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="../inicio.html" class="login-back">
+                    <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+                    Volver a la página principal
+                </a>
+            </section>
+
+            <!-- PANEL DE ACCESO -->
+            <section class="login-panel">
+
+                <div class="login-card">
+
+                    <a href="../inicio.html" class="login-mobile-brand">
+                        <i class="fa-solid fa-cake-candles" aria-hidden="true"></i>
+                        Las Delicias de Gra
+                    </a>
+
+                    <div class="login-heading">
+                        <span class="login-eyebrow">Tu cuenta</span>
+                        <h2 id="formTitle">¡Qué gusto verte!</h2>
+                        <p id="formSubtitle">
+                            Ingresa tus datos para continuar.
+                        </p>
+                    </div>
+
+                    <!-- SELECTOR DE FORMULARIO -->
+                    <div class="login-tabs" role="tablist" aria-label="Acceso de clientes">
+                        <button
+                            type="button"
+                            class="login-tab is-active"
+                            id="loginTab"
+                            role="tab"
+                            aria-selected="true"
+                            aria-controls="loginForm"
+                            >
+                            Iniciar sesión
+                        </button>
+
+                        <button
+                            type="button"
+                            class="login-tab"
+                            id="registerTab"
+                            role="tab"
+                            aria-selected="false"
+                            aria-controls="registerForm"
+                            >
+                            Crear cuenta
+                        </button>
+                    </div>
+
+                    <!-- FORMULARIO DE INICIO DE SESIÓN -->
+                    <form id="loginForm" class="account-form" novalidate>
+                        <div class="form-group">
+                            <label for="loginTelefono">Número de teléfono</label>
+
+                            <div class="input-wrap">
+                                <i class="fa-solid fa-phone" aria-hidden="true"></i>
+
+                                <input
+                                    type="tel"
+                                    id="loginTelefono"
+                                    name="telefono"
+                                    placeholder="987 654 321"
+                                    inputmode="numeric"
+                                    pattern="[0-9]{9}"
+                                    minlength="9"
+                                    maxlength="9"
+                                    autocomplete="tel-national"
+                                    required
+                                    >
+                            </div>
+
+                            <small class="field-error" id="loginTelefonoError"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="loginPassword">Contraseña</label>
+
+                            <div class="input-wrap">
+                                <i class="fa-solid fa-lock" aria-hidden="true"></i>
+
+                                <input
+                                    type="password"
+                                    id="loginPassword"
+                                    name="password"
+                                    placeholder="Ingresa tu contraseña"
+                                    minlength="8"
+                                    autocomplete="current-password"
+                                    required
+                                    >
+
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    data-target="loginPassword"
+                                    aria-label="Mostrar contraseña"
+                                    >
+                                    <i class="fa-regular fa-eye" aria-hidden="true"></i>
+                                </button>
+                            </div>
+
+                            <small class="field-error" id="loginPasswordError"></small>
+                        </div>
+
+                        <button type="submit" class="account-button">
+                            Iniciar sesión
+                            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </button>
+                    </form>
+
+                    <!-- FORMULARIO DE REGISTRO -->
+                    <form id="registerForm" class="account-form" hidden novalidate>
+                        <div class="form-group">
+                            <label for="registerNombre">Nombre completo</label>
+
+                            <div class="input-wrap">
+                                <i class="fa-solid fa-user" aria-hidden="true"></i>
+
+                                <input
+                                    type="text"
+                                    id="registerNombre"
+                                    name="nombre"
+                                    placeholder="Escribe tu nombre"
+                                    minlength="2"
+                                    maxlength="80"
+                                    autocomplete="name"
+                                    required
+                                    >
+                            </div>
+
+                            <small class="field-error" id="registerNombreError"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="registerTelefono">Número de teléfono</label>
+
+                            <div class="input-wrap">
+                                <i class="fa-solid fa-phone" aria-hidden="true"></i>
+
+                                <input
+                                    type="tel"
+                                    id="registerTelefono"
+                                    name="telefono"
+                                    placeholder="987 654 321"
+                                    inputmode="numeric"
+                                    pattern="[0-9]{9}"
+                                    minlength="9"
+                                    maxlength="9"
+                                    autocomplete="tel-national"
+                                    required
+                                    >
+                            </div>
+
+                            <small class="field-error" id="registerTelefonoError"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="registerPassword">Crea una contraseña</label>
+
+                            <div class="input-wrap">
+                                <i class="fa-solid fa-lock" aria-hidden="true"></i>
+
+                                <input
+                                    type="password"
+                                    id="registerPassword"
+                                    name="password"
+                                    placeholder="Mínimo 8 caracteres"
+                                    minlength="8"
+                                    maxlength="72"
+                                    autocomplete="new-password"
+                                    required
+                                    >
+
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    data-target="registerPassword"
+                                    aria-label="Mostrar contraseña"
+                                    >
+                                    <i class="fa-regular fa-eye" aria-hidden="true"></i>
+                                </button>
+                            </div>
+
+                            <small class="field-help">
+                                Usa al menos 8 caracteres.
+                            </small>
+
+                            <small class="field-error" id="registerPasswordError"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirma tu contraseña</label>
+
+                            <div class="input-wrap">
+                                <i class="fa-solid fa-lock" aria-hidden="true"></i>
+
+                                <input
+                                    type="password"
+                                    id="confirmPassword"
+                                    name="confirmPassword"
+                                    placeholder="Escribe nuevamente tu contraseña"
+                                    minlength="8"
+                                    maxlength="72"
+                                    autocomplete="new-password"
+                                    required
+                                    >
+
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    data-target="confirmPassword"
+                                    aria-label="Mostrar contraseña"
+                                    >
+                                    <i class="fa-regular fa-eye" aria-hidden="true"></i>
+                                </button>
+                            </div>
+
+                            <small class="field-error" id="confirmPasswordError"></small>
+                        </div>
+
+                        <div class="account-terms">
+                            <input type="checkbox" id="acceptTerms" required>
+
+                            <label for="acceptTerms">
+                                Acepto el tratamiento de mis datos personales
+                                para gestionar mi cuenta y mis pedidos.
+                            </label>
+                        </div>
+
+                        <small class="field-error" id="termsError"></small>
+
+                        <button type="submit" class="account-button">
+                            Crear mi cuenta
+                            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </button>
+                    </form>
+
+                    <!-- MENSAJE DE ESTADO -->
+                    <div
+                        id="accountMessage"
+                        class="account-message"
+                        role="status"
+                        aria-live="polite"
+                        hidden
+                        ></div>
+
+                    <p class="login-security">
+                        <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                        Tus credenciales se conectarán al sistema seguro cuando
+                        implementemos el backend.
+                    </p>
+
+                    <p class="login-footer">
+                        ¿Solo quieres conocer nuestros productos?
+                        <a href="../inicio.html">Visita nuestra página</a>.
+                    </p>
+
+                </div>
+            </section>
+        </main>
+
+        <!-- JAVASCRIPT INTEGRADO: NO REQUIERE ARCHIVO .JS -->
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const loginTab = document.getElementById("loginTab");
+                const registerTab = document.getElementById("registerTab");
+                const loginForm = document.getElementById("loginForm");
+                const registerForm = document.getElementById("registerForm");
+                const formTitle = document.getElementById("formTitle");
+                const formSubtitle = document.getElementById("formSubtitle");
+                const accountMessage = document.getElementById("accountMessage");
+
+                function showMessage(message, type = "info") {
+                    accountMessage.textContent = message;
+                    accountMessage.className = `account-message account-message--${type}`;
+                    accountMessage.hidden = false;
+                }
+
+                function clearMessage() {
+                    accountMessage.textContent = "";
+                    accountMessage.hidden = true;
+                    accountMessage.className = "account-message";
+                }
+
+                function clearErrors(form) {
+                    form.querySelectorAll(".field-error").forEach((element) => {
+                        element.textContent = "";
+                    });
+
+                    form.querySelectorAll(".input-wrap input").forEach((input) => {
+                        input.removeAttribute("aria-invalid");
+                    });
+                }
+
+                function showForm(type) {
+                    const isLogin = type === "login";
+
+                    loginForm.hidden = !isLogin;
+                    registerForm.hidden = isLogin;
+
+                    loginTab.classList.toggle("is-active", isLogin);
+                    registerTab.classList.toggle("is-active", !isLogin);
+
+                    loginTab.setAttribute("aria-selected", String(isLogin));
+                    registerTab.setAttribute("aria-selected", String(!isLogin));
+
+                    formTitle.textContent = isLogin
+                            ? "¡Qué gusto verte!"
+                            : "Crea tu cuenta";
+
+                    formSubtitle.textContent = isLogin
+                            ? "Ingresa tus datos para continuar."
+                            : "Regístrate para acceder a tu cuenta de cliente.";
+
+                    clearMessage();
+                    clearErrors(loginForm);
+                    clearErrors(registerForm);
+                }
+
+                loginTab.addEventListener("click", () => showForm("login"));
+                registerTab.addEventListener("click", () => showForm("register"));
+
+                // Mostrar u ocultar contraseñas.
+                document.querySelectorAll(".password-toggle").forEach((button) => {
+                    button.addEventListener("click", () => {
+                        const input = document.getElementById(button.dataset.target);
+                        const icon = button.querySelector("i");
+                        const showPassword = input.type === "password";
+
+                        input.type = showPassword ? "text" : "password";
+
+                        button.setAttribute(
+                                "aria-label",
+                                showPassword ? "Ocultar contraseña" : "Mostrar contraseña"
+                                );
+
+                        icon.classList.toggle("fa-eye", !showPassword);
+                        icon.classList.toggle("fa-eye-slash", showPassword);
+                    });
+                });
+
+                // Validación visual del inicio de sesión.
+
+                loginForm.addEventListener("submit", async (event) => {
+                    event.preventDefault();
+                    clearErrors(loginForm);
+                    clearMessage();
+
+                    const telefono = document.getElementById("loginTelefono");
+                    const password = document.getElementById("loginPassword");
+
+                    const celular = telefono.value.trim();
+
+                    if (!/^[0-9]{9}$/.test(celular)) {
+                        document.getElementById("loginTelefonoError").textContent =
+                                "Ingresa un número de teléfono de 9 dígitos.";
+                        telefono.setAttribute("aria-invalid", "true");
+                        showMessage("Revisa el número de celular.", "error");
+                        return;
+                    }
+
+                    if (password.value.length < 8) {
+                        document.getElementById("loginPasswordError").textContent =
+                                "La contraseña debe tener al menos 8 caracteres.";
+                        password.setAttribute("aria-invalid", "true");
+                        showMessage("Revisa la contraseña.", "error");
+                        return;
+                    }
+
+                    const boton = loginForm.querySelector('button[type="submit"]');
+                    boton.disabled = true;
+
+                    try {
+                        const respuesta = await fetch("/api/login", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            credentials: "same-origin",
+                            body: JSON.stringify({
+                                celular,
+                                password: password.value
+                            })
+                        });
+
+                        const datos = await respuesta.json();
+
+                        if (!respuesta.ok) {
+                            showMessage(
+                                    datos.error || "No se pudo iniciar sesión.",
+                                    "error"
+                                    );
+                            return;
+                        }
+
+                        showMessage("Acceso correcto. Entrando al panel...", "success");
+
+                        if (datos.usuario.rol === "admin") {
+                            window.location.href = "/html/admin.html";
+                        } else {
+                            window.location.href = "/inicio.html";
+                        }
+
+                    } catch (error) {
+                        showMessage(
+                                "No se pudo conectar con el servidor. Comprueba que Node.js esté funcionando.",
+                                "error"
+                                );
+                    } finally {
+                        boton.disabled = false;
+                    }
+                });
+
+                // Registro conectado a Node.js y MySQL.
+                registerForm.addEventListener("submit", async (event) => {
+                    event.preventDefault();
+
+                    clearErrors(registerForm);
+                    clearMessage();
+
+                    const nombre = document.getElementById("registerNombre");
+                    const telefono = document.getElementById("registerTelefono");
+                    const password = document.getElementById("registerPassword");
+                    const confirmPassword = document.getElementById("confirmPassword");
+                    const acceptTerms = document.getElementById("acceptTerms");
+
+                    const nombreValor = nombre.value.trim();
+                    const celular = telefono.value.trim();
+                    let valid = true;
+
+                    if (nombreValor.length < 2 || nombreValor.length > 100) {
+                        document.getElementById("registerNombreError").textContent =
+                                "Escribe un nombre de entre 2 y 100 caracteres.";
+                        nombre.setAttribute("aria-invalid", "true");
+                        valid = false;
+                    }
+
+                    if (!/^[0-9]{9}$/.test(celular)) {
+                        document.getElementById("registerTelefonoError").textContent =
+                                "Ingresa un número de teléfono de 9 dígitos.";
+                        telefono.setAttribute("aria-invalid", "true");
+                        valid = false;
+                    }
+
+                    if (password.value.length < 8 || password.value.length > 72) {
+                        document.getElementById("registerPasswordError").textContent =
+                                "Usa una contraseña de entre 8 y 72 caracteres.";
+                        password.setAttribute("aria-invalid", "true");
+                        valid = false;
+                    }
+
+                    if (confirmPassword.value !== password.value) {
+                        document.getElementById("confirmPasswordError").textContent =
+                                "Las contraseñas no coinciden.";
+                        confirmPassword.setAttribute("aria-invalid", "true");
+                        valid = false;
+                    }
+
+                    if (!acceptTerms.checked) {
+                        document.getElementById("termsError").textContent =
+                                "Debes aceptar el tratamiento de tus datos para continuar.";
+                        valid = false;
+                    }
+
+                    if (!valid) {
+                        showMessage("Revisa los campos señalados.", "error");
+                        return;
+                    }
+
+                    const boton = registerForm.querySelector('button[type="submit"]');
+                    boton.disabled = true;
+
+                    try {
+                        const respuesta = await fetch("/api/registro", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                nombre: nombreValor,
+                                celular,
+                                password: password.value
+                            })
+                        });
+
+                        const datos = await respuesta.json();
+
+                        if (!respuesta.ok) {
+                            showMessage(
+                                    datos.error || "No se pudo crear la cuenta.",
+                                    "error"
+                                    );
+                            return;
+                        }
+
+                        registerForm.reset();
+
+                        showMessage(
+                                "Cuenta creada correctamente. Ahora puedes iniciar sesión.",
+                                "success"
+                                );
+
+                        showForm("login");
+
+                    } catch (error) {
+                        showMessage(
+                                "No se pudo conectar con el servidor. Comprueba que Node.js esté funcionando.",
+                                "error"
+                                );
+                    } finally {
+                        boton.disabled = false;
+                    }
+                });
+            });
+        </script>
+
+    </body>
+</html>

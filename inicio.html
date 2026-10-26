@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta
+            name="description"
+            content="Las Delicias de Gra: tortas personalizadas, tortas clásicas, postres, bocaditos y kekes caseros para tus celebraciones."
+            >
+
+        <title>Las Delicias de Gra | Pastelería artesanal</title>
+
+        <!-- Estilos globales -->
+        <link rel="stylesheet" href="css/global.css">
+
+        <!-- Estilos específicos de inicio -->
+        <link rel="stylesheet" href="estilos.css">
+
+        <!-- Iconos -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+            >
+
+        <!-- Tipografías -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap"
+            rel="stylesheet"
+            >
+    </head>
+
+    <body>
+
+        <!-- =========================
+             ENCABEZADO
+        ========================== -->
+        <header class="site-header">
+
+            <div class="top-bar">
+                <div class="top-bar__container">
+
+                    <div class="top-bar__contact" aria-label="Información de contacto">
+
+                        <a href="tel:+51945762189">
+                            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                            <span>945 762 189</span>
+                        </a>
+
+                        <a
+                            href="https://wa.me/51945762189"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >
+                            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                            <span>WhatsApp</span>
+                        </a>
+
+                    </div>
+
+
+                    <div class="top-bar__account">
+
+                        <a href="html/agregar-carrito.html"
+                           class="top-bar__cart"
+                           id="abrirCarrito"
+                           aria-label="Abrir carrito de compras">
+                            <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+                            <span>Mi carrito</span>
+                            <span class="cart-count" id="contadorCarrito">0</span>
+                        </a>
+
+                        <a href="html/login.html" id="loginLink">
+                            <i class="fa-solid fa-user" aria-hidden="true"></i>
+                            <span id="loginTexto">Iniciar sesión</span>
+                        </a>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+            <nav class="navbar" aria-label="Navegación principal">
+
+                <div class="navbar__container">
+
+                    <a href="inicio.html" class="navbar__brand">
+                        <span class="navbar__brand-name">
+                            Las Delicias de Gra
+                        </span>
+
+                        <span class="navbar__brand-subtitle">
+                            Pastelería artesanal
+                        </span>
+                    </a>
+
+                    <button
+                        class="navbar__toggle"
+                        id="navbarToggle"
+                        type="button"
+                        aria-label="Abrir menú de navegación"
+                        aria-expanded="false"
+                        aria-controls="navLinks"
+                        >
+                        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                    </button>
+
+                    <ul class="nav-links" id="navLinks">
+
+                        <li>
+                            <a href="inicio.html" class="active" aria-current="page">
+                                Inicio
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="html/nosotros.html">
+                                Nosotros
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="html/menu.html">
+                                Menú
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="html/galeria.html">
+                                Galería
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="html/resenas.html">
+                                Reseñas
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="html/contacto.html">
+                                Contacto
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </nav>
+
+        </header>
+
+        <!-- =========================
+             CONTENIDO PRINCIPAL
+        ========================== -->
+        <main>
+
+            <!-- Banner principal -->
+            <section class="hero" aria-labelledby="hero-title">
+
+                <div class="hero__overlay"></div>
+
+                <div class="hero__content">
+
+                    <span class="hero__eyebrow">
+                        Pastelería artesanal
+                    </span>
+
+                    <h1 id="hero-title">
+                        Dulces creaciones para momentos inolvidables
+                    </h1>
+
+                    <p>
+                        Tortas personalizadas, kekes caseros, postres y bocaditos
+                        preparados con dedicación para celebrar tus ocasiones especiales.
+                    </p>
+
+                    <div class="hero__actions">
+
+                        <a href="html/menu.html" class="btn btn--primary">
+                            Ver nuestro menú
+                        </a>
+
+                        <a
+                            href="https://wa.me/51945762189"
+                            class="btn btn--outline"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >
+                            Consultar por WhatsApp
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- =========================
+                 CATEGORÍAS PRINCIPALES
+            ========================== -->
+            <section
+                class="home-section categories-section"
+                aria-labelledby="categories-title"
+                >
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+                        Nuestras especialidades
+                    </span>
+
+                    <h2 id="categories-title">
+                        Encuentra el dulce perfecto
+                    </h2>
+
+                    <p>
+                        Conoce las principales categorías de nuestra pastelería.
+                    </p>
+
+                </div>
+
+                <div class="category-grid">
+
+                    <!-- Tortas personalizadas -->
+                    <article class="category-card">
+
+                        <img
+                            src="fotos/galeria/bloomingcelebration.png"
+                            alt="Torta personalizada Blooming Celebration"
+                            loading="lazy"
+                            >
+
+                        <div class="category-card__content">
+
+                            <h3>Tortas personalizadas</h3>
+
+                            <p>
+                                Diseños creados especialmente para cada celebración.
+                            </p>
+
+                            <a
+                                class="category-card__link"
+                                href="html/menu.html"
+                                >
+                                Explorar categoría
+                                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                    <!-- Tortas clásicas -->
+                    <article class="category-card">
+
+                        <img
+                            src="fotos/tortas/carrotdelight.png"
+                            alt="Torta clásica de zanahoria"
+                            loading="lazy"
+                            >
+
+                        <div class="category-card__content">
+
+                            <h3>Tortas clásicas</h3>
+
+                            <p>
+                                Sabores tradicionales para compartir en familia.
+                            </p>
+
+                            <a
+                                class="category-card__link"
+                                href="html/menu.html"
+                                >
+                                Explorar categoría
+                                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                    <!-- Postres -->
+                    <article class="category-card">
+
+                        <img
+                            src="fotos/postres/mixedfruittartbox.png"
+                            alt="Selección de tartaletas de frutas"
+                            loading="lazy"
+                            >
+
+                        <div class="category-card__content">
+
+                            <h3>Postres</h3>
+
+                            <p>
+                                Deliciosos postres artesanales para compartir.
+                            </p>
+
+                            <a
+                                class="category-card__link"
+                                href="html/menu.html"
+                                >
+                                Explorar categoría
+                                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+            <!-- =========================
+                 PRESENTACIÓN DE NOSOTROS
+            ========================== -->
+            <section class="about-preview" aria-labelledby="about-preview-title">
+
+                <div class="about-preview__image">
+
+                    <img
+                        src="fotos/galeria/bloomingelegance.png"
+                        alt="Trabajo de pastelería de Las Delicias de Gra"
+                        loading="lazy"
+                        >
+
+                </div>
+
+                <div class="about-preview__content">
+
+                    <span class="section-label">
+                        Las Delicias de Gra
+                    </span>
+
+                    <h2 id="about-preview-title">
+                        Elaboramos cada pedido con dedicación
+                    </h2>
+
+                    <p>
+                        Creamos tortas y postres artesanales cuidando cada detalle,
+                        desde la selección de los ingredientes hasta la presentación
+                        final del producto.
+                    </p>
+
+                    <p>
+                        Nuestro objetivo es acompañar tus celebraciones con diseños
+                        especiales y sabores que puedas recordar.
+                    </p>
+
+                    <a href="html/nosotros.html" class="text-link">
+                        Conoce nuestra historia
+                        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+
+                </div>
+
+            </section>
+
+            <!-- =========================
+                 PRODUCTOS DESTACADOS
+            ========================== -->
+            <section
+                class="home-section featured-section"
+                aria-labelledby="featured-title"
+                >
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+                        Selección especial
+                    </span>
+
+                    <h2 id="featured-title">
+                        Productos destacados
+                    </h2>
+
+                    <p>
+                        Descubre algunas de las creaciones de nuestra pastelería.
+                    </p>
+
+                </div>
+
+                <div class="featured-grid">
+
+                    <!-- Producto 1 -->
+                    <article class="featured-card">
+
+                        <div class="featured-card__image">
+
+                            <img
+                                src="fotos/galeria/gentlemanwhiskeycake.png"
+                                alt="Torta temática Gentleman Whiskey"
+                                loading="lazy"
+                                >
+
+                        </div>
+
+                        <div class="featured-card__content">
+
+                            <h3>Torta temática personalizada</h3>
+
+                            <p>
+                                Diseño especial elaborado según la temática
+                                y los detalles solicitados por el cliente.
+                            </p>
+
+                            <div class="featured-card__footer">
+
+                                <strong>Cotizar</strong>
+
+                                <a href="html/menu.html">
+                                    Ver detalles
+                                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                    <!-- Producto 2 -->
+                    <article class="featured-card">
+
+                        <div class="featured-card__image">
+
+                            <img
+                                src="fotos/galeria/pinkblossomcake.png"
+                                alt="Torta personalizada Pink Blossom"
+                                loading="lazy"
+                                >
+
+                        </div>
+
+                        <div class="featured-card__content">
+
+                            <h3>Torta de celebración</h3>
+
+                            <p>
+                                Una creación personalizada para cumpleaños
+                                y momentos especiales.
+                            </p>
+
+                            <div class="featured-card__footer">
+
+                                <strong>Cotizar</strong>
+
+                                <a href="html/menu.html">
+                                    Ver detalles
+                                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                    <!-- Producto 3 -->
+                    <article class="featured-card">
+
+                        <div class="featured-card__image">
+
+                            <img
+                                src="fotos/postres/goldenapplepie.png"
+                                alt="Pie de manzana artesanal"
+                                loading="lazy"
+                                >
+
+                        </div>
+
+                        <div class="featured-card__content">
+
+                            <h3>Pie de manzana</h3>
+
+                            <p>
+                                Preparado artesanalmente con manzana
+                                y un delicado toque de canela.
+                            </p>
+
+                            <div class="featured-card__footer">
+
+                                <strong>Consultar precio</strong>
+
+                                <a href="html/menu.html">
+                                    Ver detalles
+                                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+                <div class="featured-section__action">
+
+                    <a href="html/menu.html" class="btn btn--primary">
+                        Ver todos los productos
+                    </a>
+
+                </div>
+
+            </section>
+
+            <!-- =========================
+                 BENEFICIOS
+            ========================== -->
+            <section
+                class="benefits-section"
+                aria-labelledby="benefits-title"
+                >
+
+                <div class="benefits-section__container">
+
+                    <div class="section-heading">
+
+                        <span class="section-label">
+                            Beneficios para nuestros clientes
+                        </span>
+
+                        <h2 id="benefits-title">
+                            Cada compra también puede traer una sorpresa
+                        </h2>
+
+                        <p>
+                            Disfruta de beneficios especiales por elegir
+                            Las Delicias de Gra.
+                        </p>
+
+                    </div>
+
+                    <div class="benefits-grid">
+
+                        <article class="benefit">
+
+                            <div class="benefit__icon">
+                                <i class="fa-solid fa-cookie-bite" aria-hidden="true"></i>
+                            </div>
+
+                            <h3>Regalo en tu primera compra</h3>
+
+                            <p>
+                                Recibe una docena de mini alfajores de cortesía
+                                en tu primera compra.
+                            </p>
+
+                        </article>
+
+                        <article class="benefit">
+
+                            <div class="benefit__icon">
+                                <i class="fa-solid fa-gift" aria-hidden="true"></i>
+                            </div>
+
+                            <h3>Premio en tu novena compra</h3>
+
+                            <p>
+                                Después de completar ocho compras, recibirás
+                                un regalo especial en tu novena compra.
+                            </p>
+
+                        </article>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- =========================
+                 LLAMADO FINAL
+            ========================== -->
+            <section class="order-cta" aria-labelledby="order-cta-title">
+
+                <div class="order-cta__content">
+
+                    <span class="section-label">
+                        ¿Tienes una celebración especial?
+                    </span>
+
+                    <h2 id="order-cta-title">
+                        Convirtamos tu idea en una dulce creación
+                    </h2>
+
+                    <p>
+                        Explora nuestro menú y encuentra la opción ideal
+                        para tu próxima celebración.
+                    </p>
+
+                </div>
+
+                <div class="order-cta__actions">
+
+                    <a href="html/menu.html" class="btn btn--light">
+                        Ver nuestro menú
+                    </a>
+
+                    <a
+                        href="https://wa.me/51945762189"
+                        class="btn btn--outline-light"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >
+                        Consultar por WhatsApp
+                    </a>
+
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- =========================
+             PIE DE PÁGINA
+        ========================== -->
+        <footer class="footer">
+
+            <div class="footer__container">
+
+                <div class="footer__about">
+
+                    <h3>Las Delicias de Gra</h3>
+
+                    <p>
+                        Creamos tortas, postres y bocaditos artesanales para
+                        convertir cada celebración en un momento inolvidable.
+                    </p>
+
+                </div>
+
+                <div class="footer__links">
+
+                    <h4>Enlaces</h4>
+
+                    <ul>
+
+                        <li>
+                            <a href="inicio.html">Inicio</a>
+                        </li>
+
+                        <li>
+                            <a href="html/nosotros.html">Nosotros</a>
+                        </li>
+
+                        <li>
+                            <a href="html/menu.html">Menú</a>
+                        </li>
+
+                        <li>
+                            <a href="html/contacto.html">Contacto</a>
+                        </li>
+
+                        <li>
+                            <a href="html/resenas.html">Reseñas</a>
+                        </li>
+
+                        <li>
+                            <a href="html/galeria.html">Galería</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="footer__schedule">
+
+                    <h4>Horario de atención</h4>
+
+                    <p>
+                        <span>Lunes a domingo</span>
+                        <span>9:00 a. m. – 9:00 p. m.</span>
+                    </p>
+
+                </div>
+
+                <div class="footer__contact">
+                    <h4>Contacto</h4>
+
+                    <a
+                        href="https://maps.app.goo.gl/tDPpxJyVBvx9dZFa7"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >
+                        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                        <span>Chorrillos, Lima, Perú</span>
+                    </a>
+
+                    <a href="tel:+51945762189">
+                        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                        <span>945 762 189</span>
+                    </a>
+
+                    <a
+                        href="https://wa.me/51945762189"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >
+                        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                </div>
+
+
+                <div class="footer__social">
+                    <h4>Síguenos</h4>
+
+                    <div class="social-icons">
+                        <a
+                            href="https://www.facebook.com/search/people/?q=Graciela%20Alina%20Fasanando%20Huapaya"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Buscar a Graciela Alina Fasanando Huapaya en Facebook"
+                            >
+                            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+                        </a>
+
+                        <a
+                            href="https://www.instagram.com/las_delicias_de_gra/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Instagram de Las Delicias de Gra"
+                            >
+                            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                        </a>
+
+                        <a
+                            href="https://wa.me/51945762189"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="WhatsApp de Las Delicias de Gra"
+                            >
+                            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="footer__bottom">
+
+                <p>
+                    © 2026 Las Delicias de Gra. Todos los derechos reservados.
+                </p>
+
+            </div>
+
+        </footer>
+
+        <!-- Menú adaptable para celulares -->
+        <script>
+            const navbarToggle = document.getElementById("navbarToggle");
+            const navLinks = document.getElementById("navLinks");
+
+            if (navbarToggle && navLinks) {
+                navbarToggle.addEventListener("click", function () {
+                    const menuAbierto = navLinks.classList.toggle("active");
+
+                    document.body.classList.toggle("menu-open", menuAbierto);
+
+                    navbarToggle.setAttribute("aria-expanded", menuAbierto);
+
+                    navbarToggle.setAttribute(
+                            "aria-label",
+                            menuAbierto
+                            ? "Cerrar menú de navegación"
+                            : "Abrir menú de navegación"
+                            );
+
+                    navbarToggle.innerHTML = menuAbierto
+                            ? '<i class="fa-solid fa-xmark" aria-hidden="true"></i>'
+                            : '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
+                });
+
+                navLinks.querySelectorAll("a").forEach(function (enlace) {
+                    enlace.addEventListener("click", function () {
+                        navLinks.classList.remove("active");
+                        document.body.classList.remove("menu-open");
+
+                        navbarToggle.setAttribute("aria-expanded", "false");
+                        navbarToggle.setAttribute(
+                                "aria-label",
+                                "Abrir menú de navegación"
+                                );
+
+                        navbarToggle.innerHTML =
+                                '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
+                    });
+                });
+            }
+        </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", async () => {
+                const loginLink = document.getElementById("loginLink");
+                const loginTexto = document.getElementById("loginTexto");
+
+                if (!loginLink || !loginTexto)
+                    return;
+
+                try {
+                    const respuesta = await fetch("/api/sesion", {
+                        credentials: "same-origin",
+                        cache: "no-store"
+                    });
+
+                    if (!respuesta.ok)
+                        return;
+
+                    const datos = await respuesta.json();
+
+                    if (!datos.autenticado || datos.usuario.rol !== "cliente") {
+                        return;
+                    }
+
+                    loginTexto.textContent = datos.usuario.nombre;
+                    loginLink.href = "#";
+                    loginLink.title = "Cerrar sesión";
+                    loginLink.setAttribute("aria-label", "Cerrar sesión");
+
+                    loginLink.addEventListener("click", async (evento) => {
+                        evento.preventDefault();
+
+                        const confirmar = window.confirm(
+                                "¿Deseas cerrar tu sesión?"
+                                );
+
+                        if (!confirmar)
+                            return;
+
+                        try {
+                            const salida = await fetch("/api/logout", {
+                                method: "POST",
+                                credentials: "same-origin"
+                            });
+
+                            if (!salida.ok) {
+                                alert("No se pudo cerrar la sesión. Inténtalo nuevamente.");
+                                return;
+                            }
+
+                            window.location.reload();
+                        } catch {
+                            alert("No se pudo conectar con el servidor.");
+                        }
+                    });
+                } catch (error) {
+                    console.error("No se pudo consultar la sesión:", error);
+                }
+            });
+        </script>
+        <script src="js/sesion.js"></script>
+    </body>
+</html>

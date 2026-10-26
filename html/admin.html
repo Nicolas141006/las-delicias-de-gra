@@ -1,0 +1,1181 @@
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Panel administrativo | Las Delicias de Gra</title>
+
+        <link rel="stylesheet" href="../css/global.css">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+        <style>
+            :root {
+                --admin-dark: #292522;
+                --admin-dark-soft: #39312d;
+                --admin-cream: #faf6f0;
+                --admin-white: #ffffff;
+                --admin-brown: #4b3025;
+                --admin-gold: #bf8b55;
+                --admin-text: #453a34;
+                --admin-muted: #93857d;
+                --admin-border: #eee5dd;
+                --admin-red: #b84949;
+                --admin-green: #367a5a;
+                --admin-shadow: 0 5px 22px rgba(64, 43, 30, .055);
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
+                background: var(--admin-cream);
+                color: var(--admin-text);
+                font-family: "Poppins", sans-serif;
+            }
+
+            button, input, select {
+                font: inherit;
+            }
+
+            button {
+                cursor: pointer;
+            }
+
+            .admin-layout {
+                min-height: 100vh;
+            }
+
+            /* MENÚ LATERAL */
+
+            .sidebar {
+                position: fixed;
+                inset: 0 auto 0 0;
+                z-index: 100;
+                display: flex;
+                flex-direction: column;
+                width: 250px;
+                padding: 24px 15px 18px;
+                overflow-y: auto;
+                background: var(--admin-dark);
+                color: #f8eee7;
+            }
+
+            .brand {
+                display: flex;
+                align-items: center;
+                gap: 11px;
+                padding: 3px 8px 26px;
+                color: #fff;
+                text-decoration: none;
+                border-bottom: 1px solid rgba(255,255,255,.1);
+            }
+
+            .brand-icon {
+                display: grid;
+                flex-shrink: 0;
+                place-items: center;
+                width: 43px;
+                height: 43px;
+                border-radius: 12px;
+                background: #f0d9c6;
+                color: var(--admin-brown);
+                font-size: 20px;
+            }
+
+            .brand-name {
+                font-family: "Playfair Display", serif;
+                font-size: 15px;
+                font-weight: 700;
+                line-height: 1.35;
+            }
+
+            .brand-name small {
+                display: block;
+                margin-top: 4px;
+                color: #d5ad8a;
+                font-family: "Poppins", sans-serif;
+                font-size: 8px;
+                letter-spacing: 1.5px;
+                text-transform: uppercase;
+            }
+
+            .sidebar-label {
+                margin: 25px 10px 10px;
+                color: #a99a90;
+                font-size: 10px;
+                font-weight: 600;
+                letter-spacing: 1.5px;
+                text-transform: uppercase;
+            }
+
+            .sidebar-nav {
+                display: grid;
+                gap: 5px;
+            }
+
+            .nav-item {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                width: 100%;
+                min-height: 41px;
+                padding: 10px 12px;
+                border: 0;
+                border-radius: 8px;
+                background: transparent;
+                color: #d5ccc5;
+                text-align: left;
+                font-size: 12px;
+                transition: background .2s, color .2s;
+            }
+
+            .nav-item i {
+                width: 17px;
+                text-align: center;
+                font-size: 13px;
+            }
+
+            .nav-item:hover {
+                background: rgba(255,255,255,.08);
+                color: #fff;
+            }
+
+            .nav-item.active {
+                background: #694238;
+                color: #fff;
+            }
+
+            .nav-item.active i {
+                color: #f1c8a0;
+            }
+
+            .sidebar-bottom {
+                margin-top: auto;
+                padding-top: 20px;
+            }
+
+            .logout-button {
+                color: #f2a2a2;
+                border-top: 1px solid rgba(255,255,255,.1);
+                border-radius: 0;
+                padding-top: 20px;
+            }
+
+            /* CONTENIDO */
+
+            .main-content {
+                min-height: 100vh;
+                margin-left: 250px;
+                padding: 31px clamp(20px, 3.2vw, 48px) 45px;
+            }
+
+            .top-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 20px;
+                margin-bottom: 28px;
+            }
+
+            .eyebrow {
+                display: block;
+                margin-bottom: 7px;
+                color: var(--admin-gold);
+                font-size: 10px;
+                font-weight: 600;
+                letter-spacing: 1.7px;
+                text-transform: uppercase;
+            }
+
+            .top-header h1,
+            .section-heading h2 {
+                margin: 0;
+                color: var(--admin-brown);
+                font-family: "Playfair Display", serif;
+            }
+
+            .top-header h1 {
+                font-size: clamp(25px, 3vw, 32px);
+            }
+
+            .top-header p {
+                margin: 7px 0 0;
+                color: var(--admin-muted);
+                font-size: 12px;
+            }
+
+            .header-actions {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .view-store {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                padding: 11px 15px;
+                border: 1px solid #e5d7ca;
+                border-radius: 9px;
+                color: var(--admin-brown);
+                background: white;
+                text-decoration: none;
+                font-size: 12px;
+            }
+
+            .view-store:hover {
+                background: #f7ece2;
+            }
+
+            .mobile-menu {
+                display: none;
+                width: 42px;
+                height: 42px;
+                border: 1px solid var(--admin-border);
+                border-radius: 9px;
+                background: white;
+                color: var(--admin-brown);
+            }
+
+            .admin-message {
+                margin: 0 0 18px;
+                color: var(--admin-green);
+                font-size: 12px;
+            }
+
+            .admin-message:empty {
+                display: none;
+            }
+
+            /* TARJETAS */
+
+            .stats-grid {
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 16px;
+                margin-bottom: 27px;
+            }
+
+            .stat-card {
+                display: flex;
+                align-items: center;
+                gap: 13px;
+                min-width: 0;
+                padding: 20px 17px;
+                border: 1px solid var(--admin-border);
+                border-radius: 14px;
+                background: var(--admin-white);
+                box-shadow: var(--admin-shadow);
+            }
+
+            .stat-icon {
+                display: grid;
+                flex-shrink: 0;
+                place-items: center;
+                width: 43px;
+                height: 43px;
+                border-radius: 12px;
+                font-size: 17px;
+            }
+
+            .stat-icon.gold {
+                background: #fff0d9;
+                color: #b77a35;
+            }
+
+            .stat-icon.blue {
+                background: #e2f3f9;
+                color: #438fa8;
+            }
+
+            .stat-icon.green {
+                background: #e1f4e8;
+                color: #43865b;
+            }
+
+            .stat-icon.pink {
+                background: #fbe5e7;
+                color: #c36672;
+            }
+
+            .stat-info {
+                min-width: 0;
+            }
+
+            .stat-info span {
+                display: block;
+                color: var(--admin-muted);
+                font-size: 10px;
+                line-height: 1.5;
+            }
+
+            .stat-info strong {
+                display: block;
+                margin-top: 5px;
+                color: var(--admin-brown);
+                font-size: 25px;
+                line-height: 1.2;
+            }
+
+            /* SECCIONES */
+
+            .content-section {
+                margin-bottom: 24px;
+                padding: 24px;
+                border: 1px solid var(--admin-border);
+                border-radius: 14px;
+                background: white;
+                box-shadow: var(--admin-shadow);
+            }
+
+            .section-heading {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 15px;
+                margin-bottom: 17px;
+            }
+
+            .section-heading h2 {
+                font-size: 20px;
+            }
+
+            .section-heading p {
+                margin: 5px 0 0;
+                color: var(--admin-muted);
+                font-size: 11px;
+            }
+
+            .text-button {
+                display: inline-flex;
+                align-items: center;
+                gap: 7px;
+                padding: 9px 12px;
+                border: 0;
+                border-radius: 8px;
+                background: #f5ebe2;
+                color: var(--admin-brown);
+                font-size: 11px;
+                font-weight: 600;
+            }
+
+            .text-button:hover {
+                background: #edddce;
+            }
+
+            .table-wrap {
+                width: 100%;
+                overflow-x: auto;
+            }
+
+            .admin-table {
+                width: 100%;
+                border-collapse: collapse;
+                white-space: nowrap;
+            }
+
+            .admin-table th {
+                padding: 13px 12px;
+                border-bottom: 1px solid var(--admin-border);
+                color: var(--admin-muted);
+                font-size: 10px;
+                font-weight: 600;
+                text-align: left;
+            }
+
+            .admin-table td {
+                padding: 14px 12px;
+                border-bottom: 1px solid #f3eee9;
+                color: var(--admin-text);
+                font-size: 11px;
+            }
+
+            .admin-table tbody tr:last-child td {
+                border-bottom: 0;
+            }
+
+            .admin-table tbody tr:hover {
+                background: #fdfaf7;
+            }
+
+            .status {
+                display: inline-block;
+                padding: 5px 9px;
+                border-radius: 20px;
+                background: #f3ece5;
+                color: #76533d;
+                font-size: 10px;
+                font-weight: 500;
+            }
+
+            .status.pendiente {
+                background: #fff0d2;
+                color: #956522;
+            }
+
+            .status.confirmado {
+                background: #e1f3e7;
+                color: #367a50;
+            }
+
+            .status.entregado {
+                background: #e1f3e7;
+                color: #367a50;
+            }
+
+            .status.cancelado {
+                background: #fbe5e5;
+                color: #a84242;
+            }
+
+            .status.en-preparacion {
+                background: #e2f1fa;
+                color: #387899;
+            }
+
+            .status-select {
+                max-width: 145px;
+                padding: 7px 8px;
+                border: 1px solid #e8ddd3;
+                border-radius: 7px;
+                background: white;
+                color: var(--admin-text);
+                font-size: 10px;
+            }
+
+            .empty-state {
+                padding: 28px 12px;
+                color: var(--admin-muted);
+                text-align: center;
+                font-size: 12px;
+            }
+
+            .empty-state i {
+                display: block;
+                margin-bottom: 10px;
+                color: #c4a88f;
+                font-size: 25px;
+            }
+
+            .module-placeholder {
+                padding: 45px 20px;
+                text-align: center;
+            }
+
+            .module-placeholder > i {
+                display: grid;
+                place-items: center;
+                width: 65px;
+                height: 65px;
+                margin: 0 auto 18px;
+                border-radius: 18px;
+                background: #f5e8dc;
+                color: var(--admin-brown);
+                font-size: 25px;
+            }
+
+            .module-placeholder h2 {
+                margin: 0 0 9px;
+                color: var(--admin-brown);
+                font-family: "Playfair Display", serif;
+            }
+
+            .module-placeholder p {
+                max-width: 440px;
+                margin: 0 auto;
+                color: var(--admin-muted);
+                font-size: 12px;
+                line-height: 1.8;
+            }
+
+            .module-view[hidden],
+            .content-section[hidden] {
+                display: none;
+            }
+
+            .loading-text {
+                color: var(--admin-muted);
+                font-size: 12px;
+            }
+
+            /* RESPONSIVE */
+
+            @media (max-width: 1200px) {
+                .sidebar {
+                    width: 225px;
+                }
+
+                .main-content {
+                    margin-left: 225px;
+                    padding-right: 24px;
+                    padding-left: 24px;
+                }
+
+                .stats-grid {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                }
+            }
+
+            @media (max-width: 850px) {
+                .sidebar {
+                    width: 250px;
+                    transform: translateX(-100%);
+                    transition: transform .25s ease;
+                    box-shadow: 8px 0 30px rgba(0,0,0,.12);
+                }
+
+                .sidebar.open {
+                    transform: translateX(0);
+                }
+
+                .main-content {
+                    margin-left: 0;
+                    padding: 22px 18px 35px;
+                }
+
+                .mobile-menu {
+                    display: inline-grid;
+                    place-items: center;
+                }
+
+                .top-header {
+                    align-items: flex-start;
+                }
+            }
+
+            @media (max-width: 540px) {
+                .stats-grid {
+                    grid-template-columns: 1fr 1fr;
+                    gap: 10px;
+                }
+
+                .stat-card {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 10px;
+                    padding: 15px;
+                }
+
+                .stat-info strong {
+                    font-size: 23px;
+                }
+
+                .top-header h1 {
+                    font-size: 24px;
+                }
+
+                .top-header p {
+                    max-width: 220px;
+                    line-height: 1.6;
+                }
+
+                .view-store span {
+                    display: none;
+                }
+
+                .content-section {
+                    padding: 17px 13px;
+                }
+
+                .section-heading h2 {
+                    font-size: 18px;
+                }
+
+                .text-button {
+                    padding: 8px;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="admin-layout">
+
+            <aside class="sidebar" id="sidebar">
+                <a href="../inicio.html" class="brand">
+                    <span class="brand-icon">
+                        <i class="fa-solid fa-cake-candles"></i>
+                    </span>
+                    <span class="brand-name">
+                        Las Delicias de Gra
+                        <small>Pastelería artesanal</small>
+                    </span>
+                </a>
+
+                <p class="sidebar-label">Administración</p>
+
+                <nav class="sidebar-nav" id="sidebarNav">
+                    <button class="nav-item active" data-section="inicio">
+                        <i class="fa-solid fa-house"></i> Inicio
+                    </button>
+                    <button class="nav-item" data-section="productos">
+                        <i class="fa-solid fa-cake-candles"></i> Productos
+                    </button>
+                    <button class="nav-item" data-section="categorias">
+                        <i class="fa-solid fa-layer-group"></i> Categorías
+                    </button>
+                    <button class="nav-item" data-section="pedidos">
+                        <i class="fa-solid fa-receipt"></i> Pedidos
+                    </button>
+                    <button class="nav-item" data-section="clientes">
+                        <i class="fa-solid fa-users"></i> Clientes
+                    </button>
+                    <button class="nav-item" data-section="fidelizacion">
+                        <i class="fa-solid fa-heart"></i> Fidelización
+                    </button>
+                    <button class="nav-item" data-section="calendario">
+                        <i class="fa-solid fa-calendar-days"></i> Calendario de delivery
+                    </button>
+                    <button class="nav-item" data-section="consultas">
+                        <i class="fa-solid fa-comments"></i> Consultas
+                    </button>
+                    <button class="nav-item" data-section="resenas">
+                        <i class="fa-solid fa-star"></i> Reseñas
+                    </button>
+                    <button class="nav-item" data-section="galeria">
+                        <i class="fa-solid fa-images"></i> Galería
+                    </button>
+                    <button class="nav-item" data-section="usuarios">
+                        <i class="fa-solid fa-user-gear"></i> Usuarios
+                    </button>
+                    <button class="nav-item" data-section="configuracion">
+                        <i class="fa-solid fa-gear"></i> Configuración
+                    </button>
+                </nav>
+
+                <div class="sidebar-bottom">
+                    <button class="nav-item logout-button" id="cerrarSesion">
+                        <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+                    </button>
+                </div>
+            </aside>
+
+            <main class="main-content">
+                <header class="top-header">
+                    <div style="display:flex;align-items:flex-start;gap:13px">
+                        <button class="mobile-menu" id="mobileMenu" aria-label="Abrir menú">
+                            <i class="fa-solid fa-bars"></i>
+                        </button>
+                        <div>
+                            <span class="eyebrow">Las Delicias de Gra</span>
+                            <h1 id="pageTitle">Panel administrativo</h1>
+                            <p id="saludo">Cargando cuenta...</p>
+                        </div>
+                    </div>
+
+                    <div class="header-actions">
+                        <a href="../inicio.html" class="view-store">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            <span>Ver tienda</span>
+                        </a>
+                    </div>
+                </header>
+
+                <p class="admin-message" id="mensaje" role="status" aria-live="polite"></p>
+
+                <!-- INICIO -->
+                <section class="module-view" id="view-inicio">
+                    <div class="stats-grid">
+                        <article class="stat-card">
+                            <div class="stat-icon gold">
+                                <i class="fa-solid fa-receipt"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span>Total de pedidos</span>
+                                <strong id="totalPedidos">—</strong>
+                            </div>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-icon blue">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span>Pedidos pendientes</span>
+                                <strong id="pedidosPendientes">—</strong>
+                            </div>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-icon green">
+                                <i class="fa-solid fa-cake-candles"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span>Productos disponibles</span>
+                                <strong id="productosDisponibles">—</strong>
+                            </div>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-icon pink">
+                                <i class="fa-solid fa-box"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span>Total de productos</span>
+                                <strong id="totalProductos">—</strong>
+                            </div>
+                        </article>
+                    </div>
+
+                    <section class="content-section">
+                        <div class="section-heading">
+                            <div>
+                                <h2>Pedidos recientes</h2>
+                                <p>Seguimiento de los últimos pedidos registrados.</p>
+                            </div>
+                            <button class="text-button" data-go="pedidos">
+                                Ver pedidos <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <div id="tablaPedidosInicio" class="loading-text">Cargando pedidos...</div>
+                    </section>
+
+                    <section class="content-section">
+                        <div class="section-heading">
+                            <div>
+                                <h2>Productos registrados</h2>
+                                <p>Productos guardados en la base de datos.</p>
+                            </div>
+                            <button class="text-button" data-go="productos">
+                                Ver productos <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <div id="tablaProductosInicio" class="loading-text">Cargando productos...</div>
+                    </section>
+                </section>
+
+                <!-- PRODUCTOS -->
+                <section class="module-view" id="view-productos" hidden>
+                    <section class="content-section">
+                        <div class="section-heading">
+                            <div>
+                                <h2>Productos</h2>
+                                <p>Catálogo registrado en MySQL.</p>
+                            </div>
+                        </div>
+                        <div id="tablaProductos" class="loading-text">Cargando productos...</div>
+                    </section>
+                </section>
+
+                <!-- PEDIDOS -->
+                <section class="module-view" id="view-pedidos" hidden>
+                    <section class="content-section">
+                        <div class="section-heading">
+                            <div>
+                                <h2>Gestión de pedidos</h2>
+                                <p>Consulta los pedidos y actualiza su estado.</p>
+                            </div>
+                        </div>
+                        <div id="tablaPedidosCompleta" class="loading-text">Cargando pedidos...</div>
+                    </section>
+                </section>
+
+                <!-- MÓDULOS PENDIENTES -->
+                <section class="module-view" id="view-pendiente" hidden>
+                    <section class="content-section module-placeholder">
+                        <i class="fa-solid fa-screwdriver-wrench" id="placeholderIcon"></i>
+                        <h2 id="placeholderTitle">Módulo en preparación</h2>
+                        <p id="placeholderText">
+                            Esta sección se conectará a la base de datos en la siguiente etapa.
+                        </p>
+                    </section>
+                </section>
+            </main>
+        </div>
+
+        <script>
+            const mensaje = document.getElementById("mensaje");
+
+            const titulos = {
+                inicio: "Panel administrativo",
+                productos: "Productos",
+                categorias: "Categorías",
+                pedidos: "Pedidos",
+                clientes: "Clientes",
+                fidelizacion: "Fidelización",
+                calendario: "Calendario de delivery",
+                consultas: "Consultas",
+                resenas: "Reseñas",
+                galeria: "Galería",
+                usuarios: "Usuarios",
+                configuracion: "Configuración"
+            };
+
+            const descripciones = {
+                categorias: "Aquí gestionaremos las categorías del menú y su organización.",
+                clientes: "Aquí consultaremos los clientes registrados y su información.",
+                fidelizacion: "Aquí implementaremos los sellos y beneficios para clientes. Los sellos se otorgarán al marcar un pedido como entregado, sin duplicarlos.",
+                calendario: "Aquí organizaremos las fechas solicitadas y la planificación de las entregas.",
+                consultas: "Aquí gestionaremos las consultas recibidas por la pastelería.",
+                resenas: "Aquí podremos consultar y gestionar las reseñas de los clientes.",
+                galeria: "Aquí administraremos las fotografías de los trabajos de la pastelería.",
+                usuarios: "Aquí gestionaremos las cuentas y los permisos autorizados.",
+                configuracion: "Aquí podrás administrar los datos y las preferencias de la cuenta."
+            };
+
+            const iconos = {
+                categorias: "fa-layer-group",
+                clientes: "fa-users",
+                fidelizacion: "fa-heart",
+                calendario: "fa-calendar-days",
+                consultas: "fa-comments",
+                resenas: "fa-star",
+                galeria: "fa-images",
+                usuarios: "fa-user-gear",
+                configuracion: "fa-gear"
+            };
+
+            async function api(ruta, opciones = {}) {
+                const respuesta = await fetch(ruta, {
+                    credentials: "same-origin",
+                    ...opciones,
+                    headers: {
+                        ...(opciones.headers || {})
+                    }
+                });
+
+                const datos = await respuesta.json();
+
+                if (respuesta.status === 401) {
+                    window.location.href = "/html/login.html";
+                    throw new Error("Tu sesión terminó. Inicia sesión nuevamente.");
+                }
+
+                if (!respuesta.ok) {
+                    throw new Error(datos.error || "No se pudo completar la solicitud.");
+                }
+
+                return datos;
+            }
+
+            function elemento(tag, texto, clase) {
+                const nodo = document.createElement(tag);
+                nodo.textContent = texto ?? "";
+
+                if (clase)
+                    nodo.className = clase;
+
+                return nodo;
+            }
+
+            function formatoPrecio(valor) {
+                return "S/ " + Number(valor || 0).toFixed(2);
+            }
+
+            function formatoFecha(valor) {
+                if (!valor)
+                    return "—";
+
+                const fecha = new Date(valor);
+
+                if (Number.isNaN(fecha.getTime())) {
+                    return String(valor).slice(0, 10);
+                }
+
+                return fecha.toLocaleDateString("es-PE", {
+                    day: "2-digit",
+                    month: "2-digit",
+                    year: "numeric"
+                });
+            }
+
+            function crearTabla(columnas, filas) {
+                const contenedor = document.createElement("div");
+                contenedor.className = "table-wrap";
+
+                if (!filas.length) {
+                    const vacio = document.createElement("div");
+                    vacio.className = "empty-state";
+
+                    const icono = document.createElement("i");
+                    icono.className = "fa-regular fa-folder-open";
+
+                    vacio.append(
+                            icono,
+                            document.createTextNode("Todavía no hay registros.")
+                            );
+
+                    contenedor.append(vacio);
+                    return contenedor;
+                }
+
+                const tabla = document.createElement("table");
+                tabla.className = "admin-table";
+
+                const thead = document.createElement("thead");
+                const filaCabecera = document.createElement("tr");
+
+                columnas.forEach((columna) => {
+                    filaCabecera.append(elemento("th", columna.label));
+                });
+
+                thead.append(filaCabecera);
+                tabla.append(thead);
+
+                const tbody = document.createElement("tbody");
+
+                filas.forEach((datos) => {
+                    const fila = document.createElement("tr");
+
+                    columnas.forEach((columna) => {
+                        const celda = document.createElement("td");
+                        const valor = datos[columna.key];
+
+                        if (columna.key === "estado") {
+                            const estado = elemento(
+                                    "span",
+                                    valor || "pendiente",
+                                    "status " + String(valor || "pendiente").replaceAll("_", "-")
+                                    );
+                            celda.append(estado);
+                        } else if (columna.render) {
+                            columna.render(celda, datos);
+                        } else {
+                            celda.textContent = valor ?? "—";
+                        }
+
+                        fila.append(celda);
+                    });
+
+                    tbody.append(fila);
+                });
+
+                tabla.append(tbody);
+                contenedor.append(tabla);
+
+                return contenedor;
+            }
+
+            function crearTablaPedidos(pedidos, permitirCambios) {
+                const columnas = [
+                    {key: "id", label: "N.º pedido"},
+                    {key: "nombre_cliente", label: "Cliente"},
+                    {key: "celular_cliente", label: "Celular"},
+                    {
+                        key: "total",
+                        label: "Total",
+                        render(celda, pedido) {
+                            celda.textContent = formatoPrecio(pedido.total);
+                        }
+                    },
+                    {
+                        key: "estado",
+                        label: "Estado",
+                        render(celda, pedido) {
+                            const estado = elemento(
+                                    "span",
+                                    pedido.estado,
+                                    "status " + String(pedido.estado || "pendiente").replaceAll("_", "-")
+                                    );
+                            celda.append(estado);
+                        }
+                    },
+                    {
+                        key: "fecha",
+                        label: "Fecha",
+                        render(celda, pedido) {
+                            celda.textContent = formatoFecha(pedido.creado_en);
+                        }
+                    }
+                ];
+
+                if (permitirCambios) {
+                    columnas.push({
+                        key: "actualizar",
+                        label: "Actualizar",
+                        render(celda, pedido) {
+                            const selector = document.createElement("select");
+                            selector.className = "status-select";
+                            selector.setAttribute("aria-label", "Cambiar estado del pedido " + pedido.id);
+
+                            [
+                                ["pendiente", "Pendiente"],
+                                ["confirmado", "Confirmado"],
+                                ["entregado", "Entregado"],
+                                ["cancelado", "Cancelado"]
+                            ].forEach(([valor, texto]) => {
+                                const opcion = elemento("option", texto);
+                                opcion.value = valor;
+                                opcion.selected = valor === pedido.estado;
+                                selector.append(opcion);
+                            });
+
+                            selector.addEventListener("change", async () => {
+                                selector.disabled = true;
+                                mensaje.textContent = "";
+
+                                try {
+                                    await api(`/api/admin/pedidos/${pedido.id}/estado`, {
+                                        method: "PATCH",
+                                        headers: {
+                                            "Content-Type": "application/json"
+                                        },
+                                        body: JSON.stringify({estado: selector.value})
+                                    });
+
+                                    mensaje.textContent = "Estado del pedido actualizado.";
+                                    await cargarPedidos();
+                                    await cargarResumen();
+                                } catch (error) {
+                                    mensaje.textContent = error.message;
+                                    selector.value = pedido.estado;
+                                } finally {
+                                    selector.disabled = false;
+                                }
+                            });
+
+                            celda.append(selector);
+                        }
+                    });
+                }
+
+                return crearTabla(columnas, pedidos);
+            }
+
+            let productosCargados = [];
+            let pedidosCargados = [];
+
+            async function cargarProductos() {
+                const datos = await api("/api/admin/productos");
+                productosCargados = datos.productos;
+
+                const columnas = [
+                    {key: "nombre", label: "Producto"},
+                    {key: "categoria", label: "Categoría"},
+                    {
+                        key: "precio",
+                        label: "Precio",
+                        render(celda, producto) {
+                            celda.textContent = formatoPrecio(producto.precio);
+                        }
+                    },
+                    {
+                        key: "disponible",
+                        label: "Disponibilidad",
+                        render(celda, producto) {
+                            celda.append(elemento(
+                                    "span",
+                                    producto.disponible ? "Disponible" : "No disponible",
+                                    "status " + (producto.disponible ? "entregado" : "cancelado")
+                                    ));
+                        }
+                    }
+                ];
+
+                document.getElementById("tablaProductosInicio").replaceChildren(
+                        crearTabla(columnas, productosCargados.slice(0, 5))
+                        );
+
+                document.getElementById("tablaProductos").replaceChildren(
+                        crearTabla(columnas, productosCargados)
+                        );
+            }
+
+            async function cargarPedidos() {
+                const datos = await api("/api/admin/pedidos");
+                pedidosCargados = datos.pedidos;
+
+                document.getElementById("tablaPedidosInicio").replaceChildren(
+                        crearTablaPedidos(pedidosCargados.slice(0, 5), false)
+                        );
+
+                document.getElementById("tablaPedidosCompleta").replaceChildren(
+                        crearTablaPedidos(pedidosCargados, true)
+                        );
+            }
+
+            async function cargarResumen() {
+                const datos = await api("/api/admin/resumen");
+
+                document.getElementById("totalPedidos").textContent = datos.pedidos;
+                document.getElementById("pedidosPendientes").textContent = datos.pedidosPendientes;
+                document.getElementById("productosDisponibles").textContent = datos.productosDisponibles;
+                document.getElementById("totalProductos").textContent = datos.productos;
+            }
+
+            function cambiarSeccion(seccion) {
+                const vistasConocidas = ["inicio", "productos", "pedidos"];
+                const vista = vistasConocidas.includes(seccion) ? seccion : "pendiente";
+
+                document.querySelectorAll(".module-view").forEach((elementoVista) => {
+                    elementoVista.hidden = elementoVista.id !== "view-" + vista;
+                });
+
+                document.querySelectorAll(".nav-item[data-section]").forEach((boton) => {
+                    boton.classList.toggle("active", boton.dataset.section === seccion);
+                });
+
+                document.getElementById("pageTitle").textContent =
+                        titulos[seccion] || "Panel administrativo";
+
+                if (vista === "pendiente") {
+                    document.getElementById("placeholderTitle").textContent =
+                            titulos[seccion] || "Módulo en preparación";
+
+                    document.getElementById("placeholderText").textContent =
+                            descripciones[seccion] ||
+                            "Esta sección se conectará a la base de datos en la siguiente etapa.";
+
+                    document.getElementById("placeholderIcon").className =
+                            "fa-solid " + (iconos[seccion] || "fa-screwdriver-wrench");
+                }
+
+                document.getElementById("sidebar").classList.remove("open");
+            }
+
+            document.querySelectorAll(".nav-item[data-section]").forEach((boton) => {
+                boton.addEventListener("click", () => {
+                    cambiarSeccion(boton.dataset.section);
+                });
+            });
+
+            document.querySelectorAll("[data-go]").forEach((boton) => {
+                boton.addEventListener("click", () => {
+                    cambiarSeccion(boton.dataset.go);
+                });
+            });
+
+            document.getElementById("mobileMenu").addEventListener("click", () => {
+                document.getElementById("sidebar").classList.toggle("open");
+            });
+
+            document.getElementById("cerrarSesion").addEventListener("click", async () => {
+                try {
+                    await api("/api/logout", {
+                        method: "POST",
+                        headers: {"Content-Type": "application/json"},
+                        body: "{}"
+                    });
+                } catch (error) {
+                    mensaje.textContent = error.message;
+                } finally {
+                    window.location.href = "/html/login.html";
+                }
+            });
+
+            async function iniciarPanel() {
+                try {
+                    const sesion = await api("/api/sesion");
+
+                    document.getElementById("saludo").textContent =
+                            "¡Bienvenida, " + sesion.usuario.nombre + "! Resumen general de la pastelería.";
+
+                    await Promise.all([
+                        cargarResumen(),
+                        cargarProductos(),
+                        cargarPedidos()
+                    ]);
+                } catch (error) {
+                    mensaje.textContent = error.message;
+                }
+            }
+
+            iniciarPanel();
+        </script>
+    </body>
+</html>

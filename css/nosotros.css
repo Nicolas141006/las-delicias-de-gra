@@ -1,0 +1,711 @@
+
+/* ==========================================================
+   NOSOTROS.CSS
+   Estilos exclusivos de la página Nosotros
+========================================================== */
+
+/* PORTADA */
+
+.bakery-hero {
+    position: relative;
+    min-height: 65vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+        url("../fotos/galeria/bloomingelegance.png") center / cover no-repeat;
+}
+
+.bakery-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.45)
+    );
+}
+
+.bakery-hero__content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 2rem;
+    color: #fff;
+}
+
+.bakery-hero .section-label {
+    display: inline-block;
+    color: #ffe4bd;
+    margin-bottom: 1rem;
+}
+
+.bakery-hero h1 {
+    font-family: var(--font-title);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.bakery-hero p {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    max-width: 650px;
+    margin: auto;
+    color: #fff;
+}
+
+/* HISTORIA */
+
+.historia {
+    background: #fff;
+}
+
+.historia__container {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+.historia__image {
+    position: relative;
+    isolation: isolate;
+}
+
+.historia__image img {
+    width: 100%;
+    display: block;
+    border-radius: 28px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+}
+
+.historia__image::after {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    background: var(--color-primary-light);
+    border-radius: 50%;
+    right: -25px;
+    bottom: -25px;
+    z-index: -1;
+    opacity: 0.35;
+}
+
+.historia__content h2 {
+    margin: 1rem 0 2rem;
+    font-size: 2.5rem;
+}
+
+.historia__content p {
+    margin-bottom: 1.4rem;
+    line-height: 2;
+    color: var(--color-text-light);
+}
+
+.historia__content strong {
+    color: var(--color-primary);
+}
+
+.historia__frase {
+    margin-top: 2.5rem;
+    padding: 1.8rem;
+    border-left: 5px solid var(--color-primary);
+    background: #fff7f4;
+    border-radius: 14px;
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--color-primary-dark);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* TÍTULOS DE SECCIÓN */
+
+.section-heading {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-heading h2 {
+    margin: 1rem 0;
+    font-size: 2.6rem;
+}
+
+.section-heading p {
+    color: var(--color-text-light);
+    line-height: 1.8;
+    max-width: 650px;
+    margin: auto;
+}
+
+/* MISIÓN Y VISIÓN */
+
+.proposito {
+    background: var(--color-background);
+}
+
+.proposito__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.proposito-card {
+    position: relative;
+    background: #fff;
+    padding: 3rem;
+    border-radius: 24px;
+    overflow: hidden;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.proposito-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+}
+
+.proposito-card__number {
+    position: absolute;
+    right: 25px;
+    top: 18px;
+    font-size: 4rem;
+    font-weight: 700;
+    color: rgba(214, 171, 118, 0.12);
+    user-select: none;
+}
+
+.proposito-card__icon {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background: var(--color-primary-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.proposito-card__icon i {
+    font-size: 2rem;
+    color: var(--color-primary-dark);
+}
+
+.proposito-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.7rem;
+}
+
+.proposito-card p {
+    color: var(--color-text-light);
+    line-height: 1.9;
+}
+
+/* VALORES */
+
+.valores {
+    background: #fff;
+}
+
+.valores__grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin-top: 4rem;
+}
+
+.valor-card {
+    padding: 2.2rem 1.5rem;
+    text-align: center;
+    background: #fff;
+    border: 1px solid rgba(120, 82, 65, 0.1);
+    border-radius: 22px;
+    box-shadow: 0 10px 28px rgba(76, 48, 37, 0.06);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.valor-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(190, 128, 126, 0.35);
+    box-shadow: 0 18px 38px rgba(76, 48, 37, 0.12);
+}
+
+.valor-card__icon {
+    width: 68px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    background: var(--color-primary-light);
+}
+
+.valor-card__icon i {
+    font-size: 1.7rem;
+    color: var(--color-primary-dark);
+}
+
+.valor-card h3 {
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+}
+
+.valor-card p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.75;
+}
+
+/* POR QUÉ ELEGIRNOS */
+
+.elegirnos {
+    background: var(--color-background);
+    overflow: hidden;
+}
+
+.elegirnos__container {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+    gap: 5rem;
+}
+
+.elegirnos__content h2 {
+    max-width: 650px;
+    margin: 1rem 0 1.4rem;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+}
+
+.elegirnos__content > p {
+    max-width: 650px;
+    margin-bottom: 2rem;
+    color: var(--color-text-light);
+    line-height: 1.9;
+}
+
+.elegirnos__list {
+    display: grid;
+    gap: 1rem;
+    margin: 0 0 2.2rem;
+    padding: 0;
+    list-style: none;
+}
+
+.elegirnos__list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+    color: var(--color-text);
+    line-height: 1.7;
+}
+
+.elegirnos__list i {
+    flex-shrink: 0;
+    margin-top: 0.3rem;
+    color: var(--color-primary);
+    font-size: 1.15rem;
+}
+
+.elegirnos__image {
+    position: relative;
+    isolation: isolate;
+}
+
+.elegirnos__image::before {
+    content: "";
+    position: absolute;
+    top: -25px;
+    right: -25px;
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    background: var(--color-primary-light);
+    opacity: 0.65;
+    z-index: -1;
+}
+
+.elegirnos__image::after {
+    content: "";
+    position: absolute;
+    bottom: -25px;
+    left: -25px;
+    width: 120px;
+    height: 120px;
+    border: 3px solid rgba(190, 128, 126, 0.22);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.elegirnos__image img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    min-height: 500px;
+    object-fit: cover;
+    border-radius: 30px;
+    box-shadow: 0 22px 48px rgba(76, 48, 37, 0.16);
+}
+
+/* PROCESO DE TRABAJO */
+
+.proceso {
+    background: #fff;
+}
+
+.proceso__grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin-top: 4rem;
+}
+
+.proceso__grid::before {
+    content: "";
+    position: absolute;
+    top: 46px;
+    left: 12%;
+    right: 12%;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(190, 128, 126, 0.35),
+        rgba(190, 128, 126, 0.35),
+        transparent
+    );
+}
+
+.proceso-card {
+    position: relative;
+    z-index: 1;
+    padding: 2.2rem 1.5rem;
+    text-align: center;
+    background: #fff;
+    border-radius: 22px;
+    border: 1px solid rgba(120, 82, 65, 0.09);
+    box-shadow: 0 10px 28px rgba(76, 48, 37, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.proceso-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 18px 38px rgba(76, 48, 37, 0.11);
+}
+
+.proceso-card__number {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: rgba(190, 128, 126, 0.13);
+    line-height: 1;
+}
+
+.proceso-card__icon {
+    width: 78px;
+    height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    background: var(--color-primary-light);
+    border: 7px solid #fff;
+    box-shadow: 0 8px 24px rgba(76, 48, 37, 0.1);
+}
+
+.proceso-card__icon i {
+    font-size: 1.8rem;
+    color: var(--color-primary-dark);
+}
+
+.proceso-card h3 {
+    margin-bottom: 0.9rem;
+    font-size: 1.35rem;
+}
+
+.proceso-card p {
+    margin: 0;
+    color: var(--color-text-light);
+    line-height: 1.75;
+}
+
+/* GALERÍA PREVIA */
+
+.galeria {
+    background: var(--color-background);
+}
+
+.galeria__grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: repeat(2, 280px);
+    gap: 1.5rem;
+    margin-top: 4rem;
+}
+
+.galeria-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(76, 48, 37, 0.12);
+}
+
+.galeria-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease, filter 0.4s ease;
+}
+
+.galeria-card:hover img {
+    transform: scale(1.08);
+    filter: brightness(0.85);
+}
+
+.galeria-card figcaption {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    padding: 2rem;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.75),
+        rgba(0, 0, 0, 0.15),
+        transparent
+    );
+}
+
+.galeria-card span {
+    color: #ffe4bd;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.galeria-card h3 {
+    color: #fff;
+    margin-top: 0.4rem;
+    font-size: 1.6rem;
+}
+
+.galeria-card--large {
+    grid-row: span 2;
+}
+
+.galeria__action {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.galeria__action .text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    transition: gap 0.3s ease;
+}
+
+.galeria__action .text-link:hover {
+    gap: 1.2rem;
+}
+
+/* LLAMADO FINAL */
+
+.bakery-cta {
+    position: relative;
+    overflow: hidden;
+    padding: 7rem 0;
+    text-align: center;
+    color: #fff;
+    background:
+        linear-gradient(rgba(73, 47, 40, 0.82), rgba(73, 47, 40, 0.82)),
+        url("../fotos/galeria/pinkblossomcake.png") center / cover no-repeat;
+}
+
+.bakery-cta::before {
+    content: "";
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    top: -160px;
+    right: -120px;
+}
+
+.bakery-cta::after {
+    content: "";
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.04);
+    bottom: -130px;
+    left: -120px;
+}
+
+.bakery-cta__content {
+    position: relative;
+    z-index: 2;
+    max-width: 820px;
+}
+
+.bakery-cta .section-label {
+    color: #ffe4bd;
+}
+
+.bakery-cta h2 {
+    margin: 1rem 0;
+    color: #fff;
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+}
+
+.bakery-cta p {
+    max-width: 650px;
+    margin: auto;
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.bakery-cta__actions {
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1200px) {
+    .valores__grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .proceso__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 2rem;
+    }
+
+    .proceso__grid::before {
+        display: none;
+    }
+}
+
+@media (max-width: 992px) {
+    .historia__container,
+    .elegirnos__container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .historia__image {
+        max-width: 520px;
+        margin: auto;
+    }
+
+    .elegirnos__image {
+        order: -1;
+    }
+
+    .proposito__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .galeria__grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 280px);
+    }
+
+    .galeria-card--large {
+        grid-row: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .bakery-hero {
+        min-height: 55vh;
+    }
+
+    .bakery-hero h1 {
+        font-size: 2.6rem;
+    }
+
+    .section-heading h2,
+    .historia__content h2,
+    .elegirnos__content h2,
+    .bakery-cta h2 {
+        font-size: 2rem;
+    }
+
+    .valores__grid,
+    .proceso__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .valor-card,
+    .proposito-card,
+    .proceso-card {
+        padding: 2rem;
+    }
+
+    .galeria__grid {
+        gap: 1.2rem;
+    }
+
+    .galeria-card {
+        height: 280px;
+    }
+}
+
+@media (max-width: 576px) {
+    .historia__image::after,
+    .elegirnos__image::before,
+    .elegirnos__image::after,
+    .bakery-cta::before,
+    .bakery-cta::after {
+        display: none;
+    }
+
+    .historia__frase {
+        padding: 1.3rem;
+        font-size: 1rem;
+    }
+
+    .bakery-cta {
+        padding: 5rem 0;
+    }
+
+    .bakery-cta__actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bakery-cta__actions .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .historia__container,
+    .elegirnos__container {
+        gap: 2rem;
+    }
+}

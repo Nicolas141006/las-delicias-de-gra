@@ -1,0 +1,364 @@
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mi carrito | Las Delicias de Gra</title>
+
+        <link rel="stylesheet" href="../css/global.css">
+        <link rel="stylesheet" href="../css/agregar-carrito.css">
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    </head>
+    <body>
+
+        <header class="carrito-header">
+            <a href="../inicio.html" class="carrito-logo">
+                <i class="fa-solid fa-cake-candles"></i>
+                Las Delicias de Gra
+            </a>
+
+            <a href="menu.html" class="volver-menu">
+                <i class="fa-solid fa-arrow-left"></i>
+                Seguir comprando
+            </a>
+        </header>
+
+        <main class="carrito-contenedor">
+            <div class="carrito-titulo">
+                <span>PREPARA TU PEDIDO</span>
+                <h1>Mi carrito</h1>
+                <p>Revisa tus productos antes de continuar.</p>
+            </div>
+
+            <div class="carrito-layout">
+                <section class="carrito-productos">
+                    <div id="listaCarrito"></div>
+                </section>
+
+                <aside class="resumen-pedido">
+                    <h2>Resumen del pedido</h2>
+
+                    <div class="resumen-linea">
+                        <span>Productos</span>
+                        <span id="cantidadProductos">0</span>
+                    </div>
+
+                    <div class="resumen-linea resumen-total">
+                        <span>Total</span>
+                        <strong id="totalCarrito">S/ 0.00</strong>
+                    </div>
+
+                    <p class="aviso-anticipacion">
+                        <i class="fa-regular fa-calendar"></i>
+                        Todos los productos deben solicitarse con un mínimo de
+                        4 días de anticipación.
+                    </p>
+
+                    <button type="button" id="continuarPedido" class="btn-continuar">
+                        Continuar con el pedido
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                    <a href="menu.html" class="seguir-comprando">
+                        Seguir comprando
+                    </a>
+                </aside>
+            </div>
+        </main>
+
+        <footer class="carrito-footer">
+            <p>© 2026 Las Delicias de Gra. Hecho con cariño.</p>
+        </footer>
+
+        <script>
+            const CLAVE_CARRITO = "carritoLasDeliciasDeGra";
+            const WHATSAPP = "51945762189";
+
+            const listaCarrito = document.getElementById("listaCarrito");
+            const cantidadProductos = document.getElementById("cantidadProductos");
+            const totalCarrito = document.getElementById("totalCarrito");
+            const botonContinuar = document.getElementById("continuarPedido");
+
+            function obtenerCarrito() {
+                try {
+                    const carrito = JSON.parse(
+                            localStorage.getItem(CLAVE_CARRITO)
+                            );
+
+                    return Array.isArray(carrito) ? carrito : [];
+                } catch (error) {
+                    return [];
+                }
+            }
+
+            function guardarCarrito(carrito) {
+                localStorage.setItem(CLAVE_CARRITO, JSON.stringify(carrito));
+            }
+
+            function escaparHTML(texto) {
+                return String(texto ?? "").replace(/[&<>"']/g, caracter => ({
+                        "&": "&amp;",
+                        "<": "&lt;",
+                        ">": "&gt;",
+                        '"': "&quot;",
+                        "'": "&#39;"
+                    })[caracter]);
+            }
+
+            function dinero(precio) {
+                return `S/ ${Number(precio).toFixed(2)}`;
+            }
+
+            function calcularTotal(carrito) {
+                return carrito.reduce((total, producto) => {
+                    return total +
+                            (Number(producto.precio) || 0) *
+                            (Number(producto.cantidad) || 0);
+                }, 0);
+            }
+
+            function renderizarCarrito() {
+                const carrito = obtenerCarrito();
+
+                if (carrito.length === 0) {
+                    listaCarrito.innerHTML = `
+                        <div class="carrito-vacio">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                            <h2>Tu carrito está vacío</h2>
+                            <p>Aún no has agregado productos a tu pedido.</p>
+                            <a href="menu.html">Explorar el menú</a>
+                        </div>
+                    `;
+
+                    cantidadProductos.textContent = "0";
+                    totalCarrito.textContent = "S/ 0.00";
+                    botonContinuar.disabled = true;
+                    return;
+                }
+
+                botonContinuar.disabled = false;
+
+                listaCarrito.innerHTML = carrito.map((producto, indice) => {
+                    const cantidad = Number(producto.cantidad) || 1;
+                    const precio = Number(producto.precio) || 0;
+                    const imagen = producto.imagen || "";
+                    const rutaImagen = imagen.startsWith("../")
+                            ? imagen
+                            : imagen
+                            ? `../fotos/${producto.carpeta || ""}/${imagen}`
+                            : "";
+
+                    return `
+                        <article class="producto-carrito">
+                            <div class="producto-carrito-imagen">
+                                ${rutaImagen
+                            ? `<img src="${escaparHTML(rutaImagen)}"
+                                            alt="${escaparHTML(producto.nombre)}">`
+                            : `<i class="fa-solid fa-cake-candles"></i>`}
+                            </div>
+
+                            <div class="producto-carrito-info">
+                                <h3>${escaparHTML(producto.nombre || "Producto")}</h3>
+
+                                ${producto.presentacion
+                            ? `<p class="presentacion-carrito">
+                                        ${escaparHTML(producto.presentacion)}
+                                       </p>`
+                            : ""}
+
+                                <p class="precio-unitario">
+                                    ${dinero(precio)} por unidad de venta
+                                </p>
+
+                                <div class="control-cantidad">
+                                    <button type="button"
+                                            data-accion="restar"
+                                            data-indice="${indice}"
+                                            aria-label="Disminuir cantidad">−</button>
+
+                                    <span>${cantidad}</span>
+
+                                    <button type="button"
+                                            data-accion="sumar"
+                                            data-indice="${indice}"
+                                            aria-label="Aumentar cantidad">+</button>
+                                </div>
+                            </div>
+
+                            <div class="producto-carrito-final">
+                                <strong>${dinero(precio * cantidad)}</strong>
+
+                                <button type="button"
+                                        class="btn-eliminar"
+                                        data-accion="eliminar"
+                                        data-indice="${indice}">
+                                    <i class="fa-regular fa-trash-can"></i>
+                                    Eliminar
+                                </button>
+                            </div>
+                        </article>
+                    `;
+                }).join("");
+
+                const unidades = carrito.reduce(
+                        (total, producto) => total + (Number(producto.cantidad) || 0),
+                        0
+                        );
+
+                cantidadProductos.textContent = unidades;
+                totalCarrito.textContent = dinero(calcularTotal(carrito));
+            }
+
+            listaCarrito.addEventListener("click", event => {
+                const boton = event.target.closest("button[data-accion]");
+                if (!boton)
+                    return;
+
+                const indice = Number(boton.dataset.indice);
+                const accion = boton.dataset.accion;
+                const carrito = obtenerCarrito();
+
+                if (!carrito[indice])
+                    return;
+
+                if (accion === "sumar") {
+                    carrito[indice].cantidad =
+                            (Number(carrito[indice].cantidad) || 1) + 1;
+                }
+
+                if (accion === "restar") {
+                    carrito[indice].cantidad =
+                            Math.max(1, (Number(carrito[indice].cantidad) || 1) - 1);
+                }
+
+                if (accion === "eliminar") {
+                    carrito.splice(indice, 1);
+                }
+
+                guardarCarrito(carrito);
+                renderizarCarrito();
+            });
+
+
+            botonContinuar.addEventListener("click", async () => {
+                const carrito = obtenerCarrito();
+
+                if (carrito.length === 0 || botonContinuar.disabled) {
+                    return;
+                }
+
+                botonContinuar.disabled = true;
+
+                try {
+                    const respuestaSesion = await fetch("/api/sesion", {
+                        credentials: "same-origin"
+                    });
+
+                    if (!respuestaSesion.ok) {
+                        alert("Inicia sesión como cliente antes de realizar tu pedido.");
+                        window.location.href = "login.html";
+                        return;
+                    }
+
+                    const datosSesion = await respuestaSesion.json();
+
+                    if (
+                            !datosSesion.autenticado ||
+                            datosSesion.usuario?.rol !== "cliente"
+                            ) {
+                        alert("Debes iniciar sesión con una cuenta de cliente.");
+                        window.location.href = "login.html";
+                        return;
+                    }
+
+                    const items = carrito.map(producto => ({
+                            productoId: producto.id,
+                            cantidad: Number(producto.cantidad),
+                            presentacion: producto.presentacion || ""
+                        }));
+
+                    if (items.some(item =>
+                        !String(item.productoId || "").trim() ||
+                                !Number.isSafeInteger(item.cantidad) ||
+                                item.cantidad < 1
+                    )) {
+                        alert("Hay un producto con datos incompletos. Vuelve al menú y agrégalo nuevamente.");
+                        return;
+                    }
+
+                    const respuesta = await fetch("/api/pedidos", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        credentials: "same-origin",
+                        body: JSON.stringify({items})
+                    });
+
+                    const resultado = await respuesta.json();
+
+                    if (!respuesta.ok) {
+                        if (respuesta.status === 401) {
+                            alert("Tu sesión expiró. Inicia sesión nuevamente.");
+                            window.location.href = "login.html";
+                            return;
+                        }
+
+                        throw new Error(
+                                resultado.error || "No se pudo registrar el pedido."
+                                );
+                    }
+
+                    const lineas = resultado.items.map(producto => {
+                        return `- ${producto.nombre} x${producto.cantidad}` +
+                                (producto.presentacion
+                                        ? ` (${producto.presentacion})`
+                                        : "") +
+                                `: ${dinero(producto.subtotal)}`;
+                    });
+
+                    const mensaje = [
+                        "Hola, quisiera coordinar mi pedido en Las Delicias de Gra.",
+                        "",
+                        `Número de pedido: ${resultado.pedidoId}`,
+                        `Cliente: ${resultado.cliente.nombre}`,
+                        `Celular: ${resultado.cliente.celular}`,
+                        "Entrega: Recojo en casa",
+                        "",
+                        ...lineas,
+                        "",
+                        `Subtotal: ${dinero(resultado.subtotal)}`,
+                        `Total registrado: ${dinero(resultado.total)}`,
+                        "",
+                        "Quisiera coordinar la fecha de recojo. "
+                                + "Sé que se requieren al menos 4 días de anticipación."
+                    ].join("\n");
+
+                    localStorage.removeItem(CLAVE_CARRITO);
+
+                    renderizarCarrito();
+
+                    window.open(
+                            `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensaje)}`,
+                            "_blank",
+                            "noopener,noreferrer"
+                            );
+
+                    alert(
+                            `Pedido N.º ${resultado.pedidoId} registrado correctamente.`
+                            );
+
+                } catch (error) {
+                    alert(error.message || "Ocurrió un error al procesar el pedido.");
+                } finally {
+                    botonContinuar.disabled = obtenerCarrito().length === 0;
+                }
+            });
+
+            renderizarCarrito();
+        </script>
+
+    </body>
+</html>
